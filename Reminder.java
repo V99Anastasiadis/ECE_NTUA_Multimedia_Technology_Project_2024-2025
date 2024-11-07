@@ -7,5 +7,17 @@ public class Reminder {
         this.reminderDate = reminderDate;
     }
 
-    // Getters and setters
+    public String getType() {
+        return type;
+    }
+
+    public String getReminderDate() {
+        return reminderDate;
+    }
+
+    // Setters defined within the class
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }

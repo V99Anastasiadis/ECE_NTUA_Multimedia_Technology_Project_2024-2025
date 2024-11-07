@@ -7,7 +7,23 @@ public class Category {
         tasks = new ArrayList<>();
     }
 
-    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
     
     public void addTask(Task task) {
         tasks.add(task);
