@@ -1,6 +1,7 @@
 import Category.Category;
 import Reminder.Reminder;
 import Priority.Priority;
+import java.time.LocalDate;
 public class Task {
     private String title;
     private String description;
@@ -46,7 +47,7 @@ public class Task {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
