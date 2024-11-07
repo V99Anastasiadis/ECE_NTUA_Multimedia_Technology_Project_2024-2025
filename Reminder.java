@@ -1,3 +1,4 @@
+imort Task.Task;
 public class Reminder {
     private String type; // "1 day before", "1 week before", "1 month before", "Custom date"
     private String reminderDate;

@@ -1,3 +1,7 @@
+import Category.Category;
+import Reminder.Reminder;
+import Priority.Priority;
+import Task.Task;
 public class TaskManager {
     private List<Task> tasks;
     private List<Category> categories;

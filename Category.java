@@ -1,3 +1,4 @@
+import Task.Task;
 public class Category {
     private String name;
     private List<Task> tasks;

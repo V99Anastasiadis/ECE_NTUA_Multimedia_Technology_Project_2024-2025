@@ -1,3 +1,6 @@
+import Category.Category;
+import Reminder.Reminder;
+import Priority.Priority;
 public class Task {
     private String title;
     private String description;
