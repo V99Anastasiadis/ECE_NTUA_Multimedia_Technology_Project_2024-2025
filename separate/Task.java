@@ -2,12 +2,13 @@ import Category.Category;
 import Reminder.Reminder;
 import Priority.Priority;
 import java.time.LocalDate;
+import java.util.List;
 public class Task {
     private String title;
     private String description;
     private Category category;
     private Priority priority;
-    private String dueDate;
+    private LocalDate dueDate;
     private String status; // "Open", "In Progress", "Postponed", "Completed", "Delayed"
     private List<Reminder> reminders;
 
@@ -43,7 +44,7 @@ public class Task {
         this.priority = priority;
     }
 
-    public String getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
