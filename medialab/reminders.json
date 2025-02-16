@@ -1,0 +1,17 @@
+[
+    {
+        "task": "Project Report",
+        "type": "OneWeekBefore",
+        "reminderDate": "2025-06-08"
+    },
+    {
+        "task": "Project Report",
+        "type": "CustomDate",
+        "reminderDate": "2025-06-10"
+    },
+    {
+        "task": "Grocery Shopping",
+        "type": "OneDayBefore",
+        "reminderDate": "2025-02-19"
+    }
+]

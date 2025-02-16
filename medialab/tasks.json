@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Project Report",
+        "description": "Write the final report for the multimedia project.",
+        "category": "University",
+        "priority": "High",
+        "dueDate": "2025-06-15",
+        "status": "Open",
+        "reminders": [
+            {
+                "type": "OneWeekBefore",
+                "date": "2025-06-08"
+            },
+            {
+                "type": "CustomDate",
+                "date": "2025-06-10"
+            }
+        ]
+    },
+    {
+        "title": "Grocery Shopping",
+        "description": "Buy vegetables and dairy products.",
+        "category": "Personal",
+        "priority": "Medium",
+        "dueDate": "2025-02-20",
+        "status": "InProgress",
+        "reminders": [
+            {
+                "type": "OneDayBefore",
+                "date": "2025-02-19"
+            }
+        ]
+    }
+]
