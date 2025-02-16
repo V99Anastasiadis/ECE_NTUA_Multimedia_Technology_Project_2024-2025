@@ -1,4 +1,12 @@
-import Task.Task;
+package taskmanagement;
+/*import taskmanagement.Task;
+//import taskmanagement.Category;
+import taskmanagement.Reminder;
+import taskmanagement.Priority;
+import taskmanagement.TaskManager;*/
+import java.util.List;
+import java.util.ArrayList;
+
 public class Category {
     private String name;
     private List<Task> tasks;

@@ -1,3 +1,8 @@
+package taskmanagement;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Priority {
     String PriorityName;
     List<Priority> priorities;
@@ -12,10 +17,14 @@ public class Priority {
         return priorities;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+            return this.PriorityName;
     }
 
-    priorities.add(new Priorities());
+    public void setName(String name) {
+        this.PriorityName = name;
+    }
+
+    //priorities.add(new Priorities());
 //check chatgtp for information about priorities defaul
 }
