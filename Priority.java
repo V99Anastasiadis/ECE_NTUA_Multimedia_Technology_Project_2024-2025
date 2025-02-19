@@ -8,12 +8,15 @@ public class Priority {
     public List<Task> getTasks() { return tasks; }
 
     public void setName(String name) { 
-        //not sure who to handle new priorities
-        if (name.equals("default")) {
-            //not sure if this is the correct way to handle the default
-            System.out.println("You can't use the name default");
+        if(this.name.equals("default")){
+            System.out.println("You can't change the name of the default");
             return;
-        } else this.name = name; 
+        } else if (name.equals("default")) { //not sure who to handle new priorities
+                //not sure if this is the correct way to handle the default
+                System.out.println("You can't use the name default");
+                return;
+            } 
+        else this.name = name; 
     }
 
     //problem with the default that it is required to be "default"
