@@ -40,7 +40,11 @@ public class Task {
 
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
-    public void setCategory(Category category) { this.category = category; }
+    public void setCategory(Category category) { 
+        this.category.deleteTask(this);
+        this.category = category; 
+        category.addTask(this);
+    }
     public void setPriority(Priority priority) { this.priority = priority; }
     public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
     public void setStatus(TaskStatus status) { this.status = status; } 
