@@ -1,31 +1,22 @@
-
-
-/*import taskmanagement.Task;
-import taskmanagement.Category;
-//import taskmanagement.Reminder;
-import taskmanagement.Priority;
-import taskmanagement.TaskManager;*/
-
+import java.time.LocalDate;
 public class Reminder {
-    private String type; // "1 day before", "1 week before", "1 month before", "Custom date"
-    private String reminderDate;
-
-    public Reminder(String type, String reminderDate) {
-        this.type = type;
+    private LocalDate reminderDate;
+    private String message;
+    private Task task;
+    
+    public Reminder(LocalDate reminderDate, String message, Task task) {
         this.reminderDate = reminderDate;
+        this.message = message;
+        this.task = task;
     }
 
-    public String getType() {
-        return type;
-    }
+    public LocalDate getReminderDate() { return reminderDate; }
+    public String getMessage() { return message; }
+    public Task getTask() { return task; }
 
-    public String getReminderDate() {
-        return reminderDate;
-    }
+    public void setReminderDate(LocalDate reminderDate) { this.reminderDate = reminderDate; }
+    public void setMessage(String message) { this.message = message; }
 
-    // Setters defined within the class
-    public void setType(String type) {
-        this.type = type;
-    }
-
+    //i have to call a function to destroy the pop reminders when it is called in task
+    //i have to create a function to show the pop reminders
 }
