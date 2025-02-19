@@ -46,7 +46,12 @@ public class Task {
         category.addTask(this);
     }
     public void setPriority(Priority priority) { this.priority = priority; }
-    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+    public void setDueDate(LocalDate dueDate) { 
+        this.dueDate = dueDate; 
+        if (dueDate.isBefore(LocalDate.now()) && status != TaskStatus.COMPLETED) {
+            status = TaskStatus.DELAYED;
+        }
+    }
     public void setStatus(TaskStatus status) { this.status = status; } 
     public void setReminders(LocalDate reminderDate, String message) {
         Reminder reminder = new Reminder(reminderDate, message, this);

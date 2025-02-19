@@ -19,4 +19,5 @@ public class Reminder {
 
     //i have to call a function to destroy the pop reminders when it is called in task
     //i have to create a function to show the pop reminders
+    //i have to create a function to delete the pop reminders of alla tasks from a deleted category
 }
