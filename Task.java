@@ -48,7 +48,10 @@ public class Task {
         this.category = category; 
         category.addTask(this);
     }
-    public void setPriority(Priority priority) { this.priority = priority; }
+    public void setPriority(Priority priority) { //not sure how to handle priorities i have to revisit this
+        this.priorities.add(priority);
+        priority.addTask(this);
+    }
     public void setDueDate(LocalDate dueDate) { 
         this.dueDate = dueDate; 
         if (dueDate.isBefore(LocalDate.now()) && status != TaskStatus.COMPLETED) {
