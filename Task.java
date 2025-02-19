@@ -1,6 +1,9 @@
+import java.io.ObjectInputFilter;
+import java.rmi.server.RemoteServer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Task {
     public enum TaskStatus {
@@ -14,17 +17,17 @@ public class Task {
     private String title;
     private String description;
     private Category category;
-    private Priority priority;
+    private List<Priority> priorities;
     private LocalDate dueDate;
     private TaskStatus status; //default status is OPEN
     private List<Reminder> reminders;
 
-    public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
+
+    public Task(String title, String description, Category category, LocalDate dueDate, TaskStatus status) {
         this.title = title;
         this.description = description;
         //problem on creation what will happen if the category is not in the list
         this.category = category;
-        this.priority = priority;
         this.dueDate = dueDate;
         this.status = TaskStatus.OPEN;
         this.reminders = new ArrayList<>();        
@@ -33,10 +36,10 @@ public class Task {
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public Category getCategory() { return category; }
-    public Priority getPriority() { return priority; }
+    public List<Priority> getPriority() { return priorities; } //not sure if this is correct
     public LocalDate getDueDate() { return dueDate; }
     public TaskStatus getStatus() { return status; }
-    public List<Reminder> getReminders() { return reminders; }
+    public List<Reminder> getReminders() { return reminders; } //not sure if this is correct
 
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
@@ -52,15 +55,23 @@ public class Task {
             status = TaskStatus.DELAYED;
         }
     }
-    public void setStatus(TaskStatus status) { this.status = status; } 
-    public void setReminders(LocalDate reminderDate, String message) {
+    public void setStatus(TaskStatus status) { 
+        this.status = status;
+        if(status == TaskStatus.COMPLETED) {
+            for (int i = 0; i < reminders.size(); i++) {
+                Reminder reminder = reminders.get(i);
+                reminder.deleteReminder();
+            }
+        }
+    } 
+    public void setReminder(LocalDate reminderDate, String message) {
         Reminder reminder = new Reminder(reminderDate, message, this);
         reminders.add(reminder);    
     }
 
     public void deleteReminder(Reminder reminder) {
         reminders.remove(reminder);
-        //i have to call a function to destroy the pop reminders when i do this
+        //i don't know how to call the function to delete the specific reminder
     }
 
     public void deleteTask() {
@@ -69,9 +80,10 @@ public class Task {
         for (int i = 0; i < reminders.size(); i++) {
             Reminder reminder = reminders.get(i);
             deleteReminder(reminder);
+            reminder.getTask().getReminders().remove(reminder);
         }
-        //i have to call a function to remove the task from the list of tasks of category
-        //i have to call a function to remove the task from the list of tasks of priority
+        Category.renoveTask(this);
+        Priority.removeTask(this);
     }
     
 }

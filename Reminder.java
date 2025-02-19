@@ -5,9 +5,14 @@ public class Reminder {
     private Task task;
     
     public Reminder(LocalDate reminderDate, String message, Task task) {
-        this.reminderDate = reminderDate;
-        this.message = message;
-        this.task = task;
+        if(task.getStatus() == Task.TaskStatus.COMPLETED) {
+            System.out.println("You can't set a reminder for a completed task");
+            return;
+        } else {
+            this.reminderDate = reminderDate;
+            this.message = message;
+            this.task = task;
+        }
     }
 
     public LocalDate getReminderDate() { return reminderDate; }
@@ -17,7 +22,9 @@ public class Reminder {
     public void setReminderDate(LocalDate reminderDate) { this.reminderDate = reminderDate; }
     public void setMessage(String message) { this.message = message; }
 
-    //i have to call a function to destroy the pop reminders when it is called in task
+    public void deleteReminder() {
+        //delete the reminder
+    }
+
     //i have to create a function to show the pop reminders
-    //i have to create a function to delete the pop reminders of alla tasks from a deleted category
 }

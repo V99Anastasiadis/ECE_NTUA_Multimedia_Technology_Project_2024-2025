@@ -20,13 +20,9 @@ public class Priority {
     }
 
     //problem with the default that it is required to be "default"
-    public void addTask(Task task) {
-        tasks.add(task);
-    }
+    public void addTask(Task task) { tasks.add(task); }
 
-    public void deleteTask(Task task) {
-        tasks.remove(task);
-    }
+    public void deleteTask(Task task) { tasks.remove(task); }
 
     public void deletePriority() {
         String name = this.getName();
