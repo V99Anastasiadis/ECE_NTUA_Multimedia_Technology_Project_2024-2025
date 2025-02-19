@@ -22,6 +22,7 @@ public class Task {
     public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
         this.title = title;
         this.description = description;
+        //problem on creation what will happen if the category is not in the list
         this.category = category;
         this.priority = priority;
         this.dueDate = dueDate;
@@ -52,6 +53,16 @@ public class Task {
         reminders.remove(reminder);
         //i have to call a function to destroy the pop reminders when i do this
     }
-    
+
+    public void deleteTask() {
+        List<Reminder> reminders = getReminders();
+        //this deletes every reminder that is associated with the task
+        for (int i = 0; i < reminders.size(); i++) {
+            Reminder reminder = reminders.get(i);
+            deleteReminder(reminder);
+        }
+        //i have to call a function to remove the task from the list of tasks of category
+        //i have to call a function to remove the task from the list of tasks of priority
+    }
     
 }
