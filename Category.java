@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 public class Category {
     private List<Task> tasks;
@@ -5,6 +6,7 @@ public class Category {
 
     //Ο χρήστης θα μπορεί να ορίζει νέες κατηγορίες, δίνοντας το σχετικό όνομα.
     public Category(String name){
+        this.tasks = new ArrayList<>();
         this.name = name;
     }
 
