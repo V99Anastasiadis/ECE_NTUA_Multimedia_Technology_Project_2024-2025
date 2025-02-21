@@ -1,1 +1,6 @@
 Category.class
+Main.class
+Priority.class
+Task.class
+Reminder.class
+*.class

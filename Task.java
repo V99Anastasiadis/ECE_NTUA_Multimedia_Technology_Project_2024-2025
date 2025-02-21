@@ -17,7 +17,7 @@ public class Task {
     private String title;
     private String description;
     private Category category;
-    private List<Priority> priorities;
+    private Priority priority;
     private LocalDate dueDate;
     private TaskStatus status; //default status is OPEN
     private List<Reminder> reminders;
@@ -30,13 +30,16 @@ public class Task {
         this.category = category;
         this.dueDate = dueDate;
         this.status = TaskStatus.OPEN;
-        this.reminders = new ArrayList<>();        
+        this.reminders = new ArrayList<>();
+        String message = "Task " + title + " auto reminders";
+        Reminder reminder = new Reminder(dueDate, message, this,true);
+        reminders.add(reminder);        
     }   
 
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public Category getCategory() { return category; }
-    public List<Priority> getPriority() { return priorities; } //not sure if this is correct
+    public Priority getPriority() { return priority; } //not sure if this is correct
     public LocalDate getDueDate() { return dueDate; }
     public TaskStatus getStatus() { return status; }
     public List<Reminder> getReminders() { return reminders; } //not sure if this is correct
@@ -48,9 +51,9 @@ public class Task {
         this.category = category; 
         category.addTask(this);
     }
-    public void setPriority(Priority priority) { //not sure how to handle priorities i have to revisit this
-        this.priorities.add(priority);
-        priority.addTask(this);
+    public void setPriority(Priority priorityNew) { //not sure how to handle priorities i have to revisit this
+        priority.deleteTask(this);
+        priorityNew.addTask(this);
     }
     public void setDueDate(LocalDate dueDate) { 
         this.dueDate = dueDate; 
@@ -68,7 +71,7 @@ public class Task {
         }
     } 
     public void setReminder(LocalDate reminderDate, String message) {
-        Reminder reminder = new Reminder(reminderDate, message, this);
+        Reminder reminder = new Reminder(reminderDate, message, this,false);
         reminders.add(reminder);    
     }
 
@@ -85,8 +88,8 @@ public class Task {
             deleteReminder(reminder);
             reminder.getTask().getReminders().remove(reminder);
         }
-        Category.renoveTask(this);
-        Priority.removeTask(this);
+        this.category.deleteTask(this);
+        this.priority.deleteTask(this);
     }
     
 }

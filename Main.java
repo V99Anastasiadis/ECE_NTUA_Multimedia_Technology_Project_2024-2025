@@ -21,7 +21,7 @@ public class Main {
         priorities.add(new Priority("Default"));
         categories.add(new Category("Personal"));
 
-        Task task = new Task("Finish the project", "Complete the project by the deadline", categories.get(0), priorities.get(0), LocalDate.of(2021, 12, 31), Task.TaskStatus.OPEN);
+        Task task = new Task("Finish the project", "Complete the project by the deadline", categories.get(0), LocalDate.of(2021, 12, 31), Task.TaskStatus.OPEN);
         tasks.add(task);
         // task.setTitle("Finish the project");
         // task.setDescription("Complete the project by the deadline");
