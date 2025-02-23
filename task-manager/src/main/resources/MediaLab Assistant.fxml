@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.4" layoutX="211.0" layoutY="61.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Accordion prefHeight="116.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <panes>
+                        <TitledPane animated="false" text="Tasks">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView layoutY="-34.0" prefHeight="131.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                      <TitledPane animated="false" text="Completed">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView layoutX="104.0" layoutY="-47.0" prefHeight="131.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Delayed">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView layoutX="140.0" layoutY="-41.0" prefHeight="131.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" prefHeight="57.0" prefWidth="598.0" text="For the next 7 days">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView layoutX="22.0" layoutY="-86.0" prefHeight="131.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane layoutX="52.0" layoutY="14.0" prefHeight="236.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Task ">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Accordion layoutX="60.0" layoutY="25.0" prefHeight="205.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <panes>
+                                          <TitledPane prefHeight="200.0" prefWidth="200.0" text="Tasks">
+                                             <content>
+                                                <SplitPane dividerPositions="0.7449799196787149" prefHeight="160.0" prefWidth="200.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="220.0" prefWidth="806.0">
+                                                         <children>
+                                                            <ListView layoutX="191.0" prefHeight="220.0" prefWidth="782.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Label layoutX="28.0" layoutY="14.0" text="Search by title" />
+                                                            <ComboBox layoutX="28.0" layoutY="110.0" prefWidth="150.0" />
+                                                            <Label layoutX="37.0" layoutY="78.0" text="Filter by Category" />
+                                                            <ComboBox layoutX="28.0" layoutY="180.0" prefWidth="150.0" />
+                                                            <Label layoutX="28.0" layoutY="149.0" text="Filter by Priority" />
+                                                            <AutoCompleteTextField layoutX="22.0" layoutY="43.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </content>
+                                          </TitledPane>
+                                        <TitledPane animated="false" text="Add a new task">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.8425811755034935" prefHeight="220.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <TabPane prefHeight="198.0" prefWidth="880.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                                                    <tabs>
+                                                                      <Tab text="Task Title">
+                                                                        <content>
+                                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <TextField layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="388.0" />
+                                                                                    <Label layoutX="14.0" layoutY="36.0" prefHeight="18.0" prefWidth="386.0" text="Insert Title" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                        </content>
+                                                                      </Tab>
+                                                                      <Tab text="Task Description">
+                                                                        <content>
+                                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <TextArea layoutX="12.0" layoutY="80.0" prefHeight="94.0" prefWidth="641.0" />
+                                                                                    <Label layoutX="14.0" layoutY="27.0" prefHeight="18.0" prefWidth="386.0" text="Insert Description" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                        </content>
+                                                                      </Tab>
+                                                                        <Tab text="Category">
+                                                                          <content>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="23.0" layoutY="104.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="23.0" layoutY="45.0" prefHeight="18.0" prefWidth="386.0" text="Insert Category" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                          </content>
+                                                                        </Tab>
+                                                                        <Tab text="Priority">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="14.0" layoutY="118.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="14.0" layoutY="38.0" prefHeight="18.0" prefWidth="386.0" text="Insert Priority" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Date">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <Label layoutX="14.0" layoutY="33.0" prefHeight="18.0" prefWidth="386.0" text="Insert Date" />
+                                                                                    <DatePicker layoutX="14.0" layoutY="104.0" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="State">
+                                                                          <content>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="844.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="14.0" layoutY="111.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="14.0" layoutY="32.0" prefHeight="18.0" prefWidth="386.0" text="Insert State" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                          </content>
+                                                                        </Tab>
+                                                                    </tabs>
+                                                                  </TabPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <Button layoutX="63.0" layoutY="43.0" mnemonicParsing="false" text="Save" />
+                                                                  <Button layoutX="62.0" layoutY="111.0" mnemonicParsing="false" text="Clear" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" text="Modify an existing task">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.8333333333333333" prefHeight="220.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <TabPane prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <tabs>
+                                                                        <Tab text="Task Title">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <TextField layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="388.0" />
+                                                                                    <Label layoutX="14.0" layoutY="36.0" prefHeight="18.0" prefWidth="386.0" text="Modify Title" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Task Description">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <TextArea layoutX="12.0" layoutY="80.0" prefHeight="94.0" prefWidth="641.0" />
+                                                                                    <Label layoutX="14.0" layoutY="27.0" prefHeight="18.0" prefWidth="386.0" text="Modify Description" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Category">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="23.0" layoutY="104.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="23.0" layoutY="45.0" prefHeight="18.0" prefWidth="386.0" text="Modify Category" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Priority">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="14.0" layoutY="118.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="14.0" layoutY="38.0" prefHeight="18.0" prefWidth="386.0" text="Modify Priority" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Date">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <Label layoutX="14.0" layoutY="33.0" prefHeight="18.0" prefWidth="386.0" text="Modify Date" />
+                                                                                    <DatePicker layoutX="14.0" layoutY="104.0" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="State">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="844.0">
+                                                                                 <children>
+                                                                                    <ComboBox layoutX="14.0" layoutY="111.0" prefWidth="150.0" />
+                                                                                    <Label layoutX="14.0" layoutY="32.0" prefHeight="18.0" prefWidth="386.0" text="Modify State" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                        <Tab text="Select Task">
+                                                                          <content>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <ListView layoutX="280.0" layoutY="18.0" prefHeight="195.0" prefWidth="676.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                          </content>
+                                                                        </Tab>
+                                                                     </tabs>
+                                                                  </TabPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="209.0">
+                                                               <children>
+                                                                  <Button layoutX="49.0" layoutY="58.0" mnemonicParsing="false" text="Update" />
+                                                                  <Button layoutX="55.0" layoutY="119.0" mnemonicParsing="false" text="Clear" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" prefHeight="200.0" prefWidth="657.0" text="Delete a task">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.885737772297575" prefHeight="0.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <ListView prefHeight="198.0" prefWidth="829.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="94.0">
+                                                               <children>
+                                                                  <Button layoutX="26.0" layoutY="86.0" mnemonicParsing="false" text="Delete" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Category ">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.7670682730923695" prefHeight="325.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <ListView prefHeight="323.0" prefWidth="466.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <Label layoutX="55.0" layoutY="30.0" text="Category Name" />
+                                                <AutoCompleteTextField layoutX="22.0" layoutY="79.0" />
+                                                <Button layoutX="52.0" layoutY="129.0" mnemonicParsing="false" text="Add Category" />
+                                                <Button layoutX="39.0" layoutY="190.0" mnemonicParsing="false" text="Rename Category" />
+                                                <Button layoutX="45.0" layoutY="246.0" mnemonicParsing="false" text="Delete Category" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Priority Level ">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.8042168674698795" prefHeight="325.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <ListView prefHeight="323.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="631.0">
+                                             <children>
+                                                <AutoCompleteTextField layoutX="15.0" layoutY="73.0" />
+                                                <Label layoutX="54.0" layoutY="29.0" text="Priority Name" />
+                                                <Button layoutX="51.0" layoutY="120.0" mnemonicParsing="false" text="Add Priority" />
+                                                <Button layoutX="38.0" layoutY="173.0" mnemonicParsing="false" text="Rename Priority" />
+                                                <Button layoutX="43.0" layoutY="235.0" mnemonicParsing="false" text="Delete Priority" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Reminder">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.7951807228915663" layoutX="238.0" layoutY="68.0" prefHeight="325.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <ListView layoutX="155.0" layoutY="8.0" prefHeight="323.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label layoutX="38.0" layoutY="14.0" text="Reminder Message" />
+                                                      <Button layoutX="44.0" layoutY="206.0" mnemonicParsing="false" text="Add Reminder" />
+                                                      <Button layoutX="44.0" layoutY="249.0" mnemonicParsing="false" text="Edit Reminder" />
+                                                      <Button layoutX="36.0" layoutY="283.0" mnemonicParsing="false" text="Delete Reminder" />
+                                                      <TextField layoutX="20.0" layoutY="40.0" />
+                                                      <Text layoutX="51.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reminder Day" />
+                                                      <ComboBox layoutX="21.0" layoutY="101.0" prefWidth="150.0" />
+                                                      <Text layoutX="52.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task Reminder" />
+                                                      <DatePicker layoutX="6.0" layoutY="170.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
