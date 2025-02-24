@@ -1,0 +1,8 @@
+com/taskmanager/Main.class
+com/taskmanager/Priority.class
+com/taskmanager/Category.class
+com/taskmanager/Task.class
+com/taskmanager/Reminder.class
+com/taskmanager/DataManager.class
+com/taskmanager/AppData.class
+com/taskmanager/Task$TaskStatus.class

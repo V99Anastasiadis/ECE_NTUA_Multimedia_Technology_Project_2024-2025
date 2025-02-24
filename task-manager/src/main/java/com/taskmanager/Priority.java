@@ -1,3 +1,4 @@
+package com.taskmanager;
 import java.util.List;
 public class Priority {
     private List<Task> tasks;

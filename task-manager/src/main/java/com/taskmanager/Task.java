@@ -1,95 +1,131 @@
-import java.io.ObjectInputFilter;
-import java.rmi.server.RemoteServer;
+package com.taskmanager;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
+import org.json.simple.JSONObject;
 
 public class Task {
     public enum TaskStatus {
-        OPEN,
-        IN_PROGRESS,
-        POSTPONED,
-        COMPLETED,
-        DELAYED;
+        OPEN, IN_PROGRESS, POSTPONED, COMPLETED, DELAYED;
     }
-    private static final String FILE_PATH = "medialab/tasks.json";
+
     private String title;
     private String description;
     private Category category;
     private Priority priority;
     private LocalDate dueDate;
-    private TaskStatus status; //default status is OPEN
+    private TaskStatus status;
     private List<Reminder> reminders;
 
-
-    public Task(String title, String description, Category category, LocalDate dueDate, TaskStatus status) {
+    public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
         this.title = title;
         this.description = description;
-        //problem on creation what will happen if the category is not in the list
         this.category = category;
+        this.priority = priority;
         this.dueDate = dueDate;
-        this.status = TaskStatus.OPEN;
+        this.status = status;
         this.reminders = new ArrayList<>();
-        String message = "Task " + title + " auto reminders";
-        Reminder reminder = new Reminder(dueDate, message, this,true);
-        reminders.add(reminder);        
-    }   
+    }
 
+    // 📌 **Διορθωμένη fromJSON()**
+    public static Task fromJSON(JSONObject jsonObject) {
+        String title = (String) jsonObject.get("title");
+        String description = (String) jsonObject.get("description");
+        String categoryName = (String) jsonObject.get("category");
+        String priorityName = (String) jsonObject.get("priority");
+        LocalDate dueDate = LocalDate.parse((String) jsonObject.get("dueDate"), DateTimeFormatter.ISO_DATE);
+        TaskStatus status = TaskStatus.valueOf((String) jsonObject.get("status"));
+
+        Category category = new Category(categoryName);
+        Priority priority = new Priority(priorityName);
+
+        return new Task(title, description, category, priority, dueDate, status);
+    }
+
+    // 📌 **Διορθωμένη toJSON()**
+    public JSONObject toJSON() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("title", title);
+        jsonObject.put("description", description);
+        jsonObject.put("category", category.getName());
+        jsonObject.put("priority", priority.getName());
+        jsonObject.put("dueDate", dueDate.toString());
+        jsonObject.put("status", status.toString());
+
+        return jsonObject;
+    }
+
+    // 📌 **Getters**
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public Category getCategory() { return category; }
-    public Priority getPriority() { return priority; } //not sure if this is correct
+    public Priority getPriority() { return priority; }
     public LocalDate getDueDate() { return dueDate; }
     public TaskStatus getStatus() { return status; }
-    public List<Reminder> getReminders() { return reminders; } //not sure if this is correct
+    public List<Reminder> getReminders() { return reminders; }
 
+    // 📌 **Setters**
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
+
     public void setCategory(Category category) { 
-        this.category.deleteTask(this);
+        if (this.category != null) {
+            this.category.deleteTask(this);
+        }
         this.category = category; 
         category.addTask(this);
     }
-    public void setPriority(Priority priorityNew) { //not sure how to handle priorities i have to revisit this
-        priority.deleteTask(this);
+
+    public void setPriority(Priority priorityNew) {
+        if (this.priority != null) {
+            this.priority.deleteTask(this);
+        }
+        this.priority = priorityNew;
         priorityNew.addTask(this);
     }
+
     public void setDueDate(LocalDate dueDate) { 
         this.dueDate = dueDate; 
         if (dueDate.isBefore(LocalDate.now()) && status != TaskStatus.COMPLETED) {
             status = TaskStatus.DELAYED;
         }
     }
+
     public void setStatus(TaskStatus status) { 
         this.status = status;
         if(status == TaskStatus.COMPLETED) {
-            for (int i = 0; i < reminders.size(); i++) {
-                Reminder reminder = reminders.get(i);
+            for (Reminder reminder : new ArrayList<>(reminders)) {
                 reminder.deleteReminder();
             }
         }
-    } 
+    }
+
+    // 📌 **Δημιουργία υπενθύμισης**
     public void setReminder(LocalDate reminderDate, String message) {
-        Reminder reminder = new Reminder(reminderDate, message, this,false);
+        Reminder reminder = new Reminder(reminderDate, message, this, false);
         reminders.add(reminder);    
     }
 
+    // 📌 **Διαγραφή υπενθύμισης**
     public void deleteReminder(Reminder reminder) {
         reminders.remove(reminder);
-        //i don't know how to call the function to delete the specific reminder
     }
 
+    // 📌 **Διαγραφή εργασίας**
     public void deleteTask() {
-        List<Reminder> reminders = getReminders();
-        //this deletes every reminder that is associated with the task
-        for (int i = 0; i < reminders.size(); i++) {
-            Reminder reminder = reminders.get(i);
+        for (Reminder reminder : new ArrayList<>(reminders)) {
             deleteReminder(reminder);
             reminder.getTask().getReminders().remove(reminder);
         }
-        this.category.deleteTask(this);
-        this.priority.deleteTask(this);
+
+        if (category != null) {
+            category.deleteTask(this);
+        }
+        if (priority != null) {
+            priority.deleteTask(this);
+        }
     }
-    
 }
