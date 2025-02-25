@@ -62,6 +62,38 @@
       "title": "Develop UI",
       "category": "Work",
       "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
+    },
+    {
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
+    },
+    {
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
       "status": "OPEN"
     },
     {

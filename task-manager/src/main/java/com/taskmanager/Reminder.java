@@ -1,5 +1,8 @@
 package com.taskmanager;
 import java.time.LocalDate;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 public class Reminder {
     private LocalDate reminderDate;
     private String message;
@@ -44,5 +47,13 @@ public class Reminder {
         //delete the reminder
     }
 
-    //i have to create a function to show the pop reminders
+    public void showReminder() {
+        if (reminderDate.isEqual(LocalDate.now())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Reminder");
+            alert.setHeaderText("Task Reminder");
+            alert.setContentText("Task: " + task.getTitle() + "\nMessage: " + message);
+            alert.showAndWait();
+        }
+    }
 }

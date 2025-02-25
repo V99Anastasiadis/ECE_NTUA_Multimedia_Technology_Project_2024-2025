@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+        Priority defaultPriority = new Priority("default");
         System.out.println("\n🔄 [TEST] Φόρτωση δεδομένων από JSON...");
 
         // 1️⃣ Έλεγχος ύπαρξης του JSON αρχείου και δημιουργία νέου αν δεν υπάρχει.
@@ -110,7 +111,7 @@ public class Main {
             System.out.println("❌ Σφάλμα στη διαγραφή κατηγορίας ή των εργασιών της.");
         }
 
-        /*  curently under construction
+        //  curently under construction
         // 9️⃣ Δοκιμή διαχείρισης προτεραιότητας:
         // Δημιουργούμε μια προτεραιότητα και μια εργασία με αυτή, στη συνέχεια διαγράφουμε την προτεραιότητα.
         System.out.println("\n🔽 [TEST] Διαγραφή προτεραιότητας...");
@@ -121,16 +122,15 @@ public class Main {
         appData.getTasks().add(taskWithPriority);
         DataManager.saveData(appData);
         // Κλήση μεθόδου διαγραφής προτεραιότητας.
-        testPriority.deletePriority();
+        testPriority.deletePriority(defaultPriority);
         // Ενημερώνουμε την εργασία ώστε να πάρει την default προτεραιότητα.
-        Priority defaultPriority = new Priority("default");
         taskWithPriority.setPriority(defaultPriority);
         DataManager.saveData(appData);
         if (taskWithPriority.getPriority().getName().equals("default")) {
             System.out.println("✅ Οι εργασίες με διαγραμμένη προτεραιότητα μεταφέρθηκαν στο default.");
         } else {
             System.out.println("❌ Σφάλμα στην ενημέρωση προτεραιότητας.");
-        } */
+        } 
 
         // 🔔 10️⃣ Δοκιμή υπενθύμισης:
         // Προσπάθεια ορισμού υπενθύμισης σε COMPLETED εργασία πρέπει να απορρίπτεται.

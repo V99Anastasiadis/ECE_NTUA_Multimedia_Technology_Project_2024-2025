@@ -31,16 +31,15 @@ public class Priority {
 
     public void deleteTask(Task task) { tasks.remove(task); }
 
-    public void deletePriority() {
-        String name = this.getName();
-        if (name.equals("default")) {
-            //not sure if this is the correct way to handle the default
-            System.out.println("You can't delete the default");
-            return;
-        } else {
-            for (Task task : new ArrayList<>(tasks)) {  //whow is the correct way to handle the default
-                //task.setPriority(default);
+    public void deletePriority(Priority defaultPriority) {
+        String priorityName = this.getName();
+        if (!priorityName.equals("default")) {
+            for (Task task : new ArrayList<>(tasks)) {  
+                task.setPriority(defaultPriority);
             }
+            tasks.clear();
+        } else {
+            System.out.println("You can't delete the default");
         }
     }
 }

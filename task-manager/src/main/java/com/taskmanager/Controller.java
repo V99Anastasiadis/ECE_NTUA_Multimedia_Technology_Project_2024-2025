@@ -43,6 +43,7 @@ public class Controller {
             appData = new AppData();
         }
         taskTable.getItems().setAll(appData.getTasks());
+        checkReminders();
     }
 
     /**
@@ -53,6 +54,14 @@ public class Controller {
         appData = DataManager.loadData();
         if (appData != null) {
             taskTable.getItems().setAll(appData.getTasks());
+        }
+    }
+
+    public void checkReminders() {
+        for (Task task : appData.getTasks()) {
+            for (Reminder reminder : task.getReminders()) {
+                reminder.showReminder();
+            }
         }
     }
 
@@ -80,6 +89,7 @@ public class Controller {
                             task.getCategory().getName().toLowerCase().contains(query) ||
                             task.getPriority().getName().toLowerCase().contains(query))
             .collect(Collectors.toList());
+        // Ενημέρωση του TableView με τα αποτελέσματα
         taskTable.getItems().setAll(results);
     }
 
