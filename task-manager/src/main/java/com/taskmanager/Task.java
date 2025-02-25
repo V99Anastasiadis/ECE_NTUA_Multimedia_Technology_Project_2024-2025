@@ -112,14 +112,18 @@ public class Task {
     // 📌 **Διαγραφή υπενθύμισης**
     public void deleteReminder(Reminder reminder) {
         reminders.remove(reminder);
+        reminder.deleteReminder();
+    }
+
+    public void clearReminderAlerts() {
+        for (Reminder reminder : reminders) {
+            reminder.deleteReminder();
+        }
     }
 
     // 📌 **Διαγραφή εργασίας**
     public void deleteTask() {
-        for (Reminder reminder : new ArrayList<>(reminders)) {
-            deleteReminder(reminder);
-            reminder.getTask().getReminders().remove(reminder);
-        }
+        clearReminderAlerts();
 
         if (category != null) {
             category.deleteTask(this);

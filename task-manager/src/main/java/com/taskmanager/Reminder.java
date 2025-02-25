@@ -7,6 +7,7 @@ public class Reminder {
     private LocalDate reminderDate;
     private String message;
     private Task task;
+    private Alert alert;
     
     //flag exists in order to prevent the recurcive call of the constructor
     public Reminder(LocalDate reminderDate, String message, Task task , boolean flag) {
@@ -43,17 +44,19 @@ public class Reminder {
     public void setReminderDate(LocalDate reminderDate) { this.reminderDate = reminderDate; }
     public void setMessage(String message) { this.message = message; }
 
-    public void deleteReminder() {
-        //delete the reminder
-    }
-
     public void showReminder() {
         if (reminderDate.isEqual(LocalDate.now())) {
-            Alert alert = new Alert(AlertType.INFORMATION);
+            alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Reminder");
             alert.setHeaderText("Task Reminder");
             alert.setContentText("Task: " + task.getTitle() + "\nMessage: " + message);
             alert.showAndWait();
+        }
+    }
+
+    public void deleteReminder() {
+        if (alert != null) {
+            alert.close(); // Κλείσιμο της ειδοποίησης
         }
     }
 }
