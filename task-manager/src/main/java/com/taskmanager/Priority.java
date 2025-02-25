@@ -1,9 +1,13 @@
 package com.taskmanager;
+import java.util.ArrayList;
 import java.util.List;
 public class Priority {
     private List<Task> tasks;
     private String name;
-    public Priority(String string) {this.name = string;}
+    public Priority(String string) {
+        this.name = string;
+        this.tasks = new ArrayList<>();
+    }
 
     public String getName() { return name; }
     public List<Task> getTasks() { return tasks; }
@@ -21,7 +25,9 @@ public class Priority {
     }
 
     //problem with the default that it is required to be "default"
-    public void addTask(Task task) { tasks.add(task); }
+    public void addTask(Task task) { 
+        tasks.add(task); 
+    }
 
     public void deleteTask(Task task) { tasks.remove(task); }
 
@@ -32,10 +38,8 @@ public class Priority {
             System.out.println("You can't delete the default");
             return;
         } else {
-            for (int i = 0; i < tasks.size(); i++) {
-                Task task = tasks.get(i);
-                task.deleteTask();
-                //task.setPriority(default); //this needs help
+            for (Task task : new ArrayList<>(tasks)) {  //whow is the correct way to handle the default
+                //task.setPriority(default);
             }
         }
     }

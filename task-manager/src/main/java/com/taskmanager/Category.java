@@ -29,8 +29,7 @@ public class Category {
     //Επίσης, θα μπορεί να διαγράφει μια κατηγορία μαζί με την αυτόματη διαγραφή όλων των εργασιών που ανήκουν σε αυτή.
     //when you delete a category it deletes all the assowciated tasks
     public void deleteCategory() {
-        for (int i = 0; i < tasks.size(); i++) {
-            Task task = tasks.get(i);
+        for (Task task : new ArrayList<>(tasks)){
             task.deleteTask();
         }
     }

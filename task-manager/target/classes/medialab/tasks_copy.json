@@ -1,0 +1,122 @@
+{
+  "tasks": [
+    {
+      "title": "Develop UI",
+      "description": "Create the user interface using JavaFX.",
+      "category": "Work",
+      "priority": "High",
+      "dueDate": "2024-12-20",
+      "status": "DELAYED",
+      "reminders": [
+        {
+          "reminderDate": "2024-12-19",
+          "message": "UI deadline is tomorrow.",
+          "auto": true
+        }
+      ]
+    },
+    {
+      "title": "Bug Fixing",
+      "description": "Fix critical bugs in the application.",
+      "category": "Work",
+      "priority": "Medium",
+      "dueDate": "2024-12-22",
+      "status": "IN_PROGRESS",
+      "reminders": [
+        {
+          "reminderDate": "2024-12-21",
+          "message": "Prepare for bug fixing review.",
+          "auto": true
+        }
+      ]
+    },
+    {
+      "title": "Deployment Docs",
+      "description": "Prepare documentation for deployment.",
+      "category": "Documentation",
+      "priority": "Low",
+      "dueDate": "2024-12-25",
+      "status": "OPEN",
+      "reminders": []
+    },
+    {
+      "title": "Write Documentation",
+      "description": "Document new features and API changes.",
+      "category": "Documentation",
+      "priority": "Medium",
+      "dueDate": "2024-12-28",
+      "status": "POSTPONED",
+      "reminders": [
+        {
+          "reminderDate": "2024-12-27",
+          "message": "Finish writing documentation.",
+          "auto": false
+        }
+      ]
+    },
+    {
+      "title": "Update Project Plan",
+      "description": "Revise the project plan and deadlines.",
+      "category": "Planning",
+      "priority": "High",
+      "dueDate": "2024-12-30",
+      "status": "OPEN",
+      "reminders": [
+        {
+          "reminderDate": "2024-12-29",
+          "message": "Review project plan.",
+          "auto": true
+        },
+        {
+          "reminderDate": "2024-12-15",
+          "message": "Initial project plan review.",
+          "auto": false
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Work",
+      "tasks": [
+        "Develop UI",
+        "Bug Fixing"
+      ]
+    },
+    {
+      "name": "Documentation",
+      "tasks": [
+        "Deployment Docs",
+        "Write Documentation"
+      ]
+    },
+    {
+      "name": "Planning",
+      "tasks": [
+        "Update Project Plan"
+      ]
+    }
+  ],
+  "priorities": [
+    {
+      "name": "High",
+      "tasks": [
+        "Develop UI",
+        "Update Project Plan"
+      ]
+    },
+    {
+      "name": "Medium",
+      "tasks": [
+        "Bug Fixing",
+        "Write Documentation"
+      ]
+    },
+    {
+      "name": "Low",
+      "tasks": [
+        "Deployment Docs"
+      ]
+    }
+  ]
+}

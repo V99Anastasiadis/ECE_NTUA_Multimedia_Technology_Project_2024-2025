@@ -1,122 +1,92 @@
 {
   "tasks": [
     {
-      "title": "Develop UI",
-      "description": "Create the user interface using JavaFX.",
-      "category": "Work",
-      "priority": "High",
-      "dueDate": "2024-12-20",
-      "status": "DELAYED",
-      "reminders": [
-        {
-          "reminderDate": "2024-12-19",
-          "message": "UI deadline is tomorrow.",
-          "auto": true
-        }
-      ]
-    },
-    {
-      "title": "Bug Fixing",
+      "dueDate": "2024-12-31",
       "description": "Fix critical bugs in the application.",
+      "title": "Bug Fixing",
       "category": "Work",
       "priority": "Medium",
-      "dueDate": "2024-12-22",
-      "status": "IN_PROGRESS",
-      "reminders": [
-        {
-          "reminderDate": "2024-12-21",
-          "message": "Prepare for bug fixing review.",
-          "auto": true
-        }
-      ]
+      "status": "COMPLETED"
     },
     {
-      "title": "Deployment Docs",
+      "dueDate": "2024-12-25",
       "description": "Prepare documentation for deployment.",
+      "title": "Deployment Docs",
       "category": "Documentation",
       "priority": "Low",
-      "dueDate": "2024-12-25",
-      "status": "OPEN",
-      "reminders": []
+      "status": "DELAYED"
     },
     {
-      "title": "Write Documentation",
+      "dueDate": "2024-12-28",
       "description": "Document new features and API changes.",
+      "title": "Write Documentation",
       "category": "Documentation",
       "priority": "Medium",
-      "dueDate": "2024-12-28",
-      "status": "POSTPONED",
-      "reminders": [
-        {
-          "reminderDate": "2024-12-27",
-          "message": "Finish writing documentation.",
-          "auto": false
-        }
-      ]
+      "status": "DELAYED"
     },
     {
-      "title": "Update Project Plan",
+      "dueDate": "2024-12-30",
       "description": "Revise the project plan and deadlines.",
+      "title": "Update Project Plan",
       "category": "Planning",
       "priority": "High",
-      "dueDate": "2024-12-30",
-      "status": "OPEN",
-      "reminders": [
-        {
-          "reminderDate": "2024-12-29",
-          "message": "Review project plan.",
-          "auto": true
-        },
-        {
-          "reminderDate": "2024-12-15",
-          "message": "Initial project plan review.",
-          "auto": false
-        }
-      ]
-    }
-  ],
-  "categories": [
-    {
-      "name": "Work",
-      "tasks": [
-        "Develop UI",
-        "Bug Fixing"
-      ]
+      "status": "DELAYED"
     },
     {
-      "name": "Documentation",
-      "tasks": [
-        "Deployment Docs",
-        "Write Documentation"
-      ]
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
     },
     {
-      "name": "Planning",
-      "tasks": [
-        "Update Project Plan"
-      ]
-    }
-  ],
-  "priorities": [
-    {
-      "name": "High",
-      "tasks": [
-        "Develop UI",
-        "Update Project Plan"
-      ]
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
     },
     {
-      "name": "Medium",
-      "tasks": [
-        "Bug Fixing",
-        "Write Documentation"
-      ]
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
     },
     {
-      "name": "Low",
-      "tasks": [
-        "Deployment Docs"
-      ]
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
+    },
+    {
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "OPEN"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
     }
   ]
 }

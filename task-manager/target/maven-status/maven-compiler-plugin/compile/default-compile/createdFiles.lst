@@ -1,6 +1,7 @@
 com/taskmanager/Main.class
 com/taskmanager/Priority.class
 com/taskmanager/Category.class
+com/taskmanager/Controller.class
 com/taskmanager/Task.class
 com/taskmanager/Reminder.class
 com/taskmanager/DataManager.class

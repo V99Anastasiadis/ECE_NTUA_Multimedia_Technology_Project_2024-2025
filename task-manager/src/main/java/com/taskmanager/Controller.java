@@ -1,7 +1,12 @@
 package com.taskmanager;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,4 +63,41 @@ public class Controller {
     public void saveData(ActionEvent event) {
         DataManager.saveData(appData);
     }
+
+    @FXML
+    public void addTask(ActionEvent event) {
+        Task newTask = new Task("New Task", "Description", new Category("Work"), new Priority("High"), LocalDate.now(), Task.TaskStatus.OPEN);
+        appData.getTasks().add(newTask);
+        DataManager.saveData(appData);
+        taskTable.getItems().setAll(appData.getTasks()); // Ενημέρωση UI
+    }
+
+    @FXML
+    public void searchTasks(ActionEvent event) {
+        String query = searchField.getText().toLowerCase();
+        List<Task> results = appData.getTasks().stream()
+            .filter(task -> task.getTitle().toLowerCase().contains(query) || 
+                            task.getCategory().getName().toLowerCase().contains(query) ||
+                            task.getPriority().getName().toLowerCase().contains(query))
+            .collect(Collectors.toList());
+        taskTable.getItems().setAll(results);
+    }
+
+    @FXML
+    private Label totalTasksLabel, completedTasksLabel, delayedTasksLabel, upcomingTasksLabel;
+    @FXML 
+    private javafx.scene.control.TextField searchField;
+
+    public void updateStatistics() {
+        long total = appData.getTasks().size();
+        long completed = appData.getTasks().stream().filter(t -> t.getStatus() == Task.TaskStatus.COMPLETED).count();
+        long delayed = appData.getTasks().stream().filter(t -> t.getStatus() == Task.TaskStatus.DELAYED).count();
+        long upcoming = appData.getTasks().stream().filter(t -> t.getDueDate().isBefore(LocalDate.now().plusDays(7))).count();
+
+        totalTasksLabel.setText("Σύνολο: " + total);
+        completedTasksLabel.setText("Ολοκληρωμένα: " + completed);
+        delayedTasksLabel.setText("Καθυστερημένα: " + delayed);
+        upcomingTasksLabel.setText("Προσεχή: " + upcoming);
+    }
+
 }

@@ -1,12 +1,36 @@
 {
   "tasks": [
     {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
+      "dueDate": "2024-12-31",
+      "description": "Fix critical bugs in the application.",
+      "title": "Bug Fixing",
       "category": "Work",
-      "priority": "High",
+      "priority": "Medium",
       "status": "COMPLETED"
+    },
+    {
+      "dueDate": "2024-12-25",
+      "description": "Prepare documentation for deployment.",
+      "title": "Deployment Docs",
+      "category": "Documentation",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2024-12-28",
+      "description": "Document new features and API changes.",
+      "title": "Write Documentation",
+      "category": "Documentation",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2024-12-30",
+      "description": "Revise the project plan and deadlines.",
+      "title": "Update Project Plan",
+      "category": "Planning",
+      "priority": "High",
+      "status": "DELAYED"
     },
     {
       "dueDate": "2024-12-20",
@@ -22,7 +46,31 @@
       "title": "Develop UI",
       "category": "Work",
       "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
+    },
+    {
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
       "status": "OPEN"
+    },
+    {
+      "dueDate": "2025-02-25",
+      "description": "Testing reminder on completed task",
+      "title": "Completed Task",
+      "category": "General",
+      "priority": "Low",
+      "status": "COMPLETED"
     }
   ]
 }
