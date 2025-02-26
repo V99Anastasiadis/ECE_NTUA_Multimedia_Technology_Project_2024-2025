@@ -3,15 +3,17 @@ package com.taskmanager;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class DataManager {
-    private static final String FILE_PATH = "src/main/resources/medialab/tasks.json";
+    private static final String FILE_PATH = "src/main/resources/medialab/tasks_copy.json";
 
     public static AppData loadData() {
         AppData appData = new AppData();
