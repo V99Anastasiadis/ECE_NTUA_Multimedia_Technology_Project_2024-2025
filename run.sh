@@ -21,7 +21,28 @@ mvn compile || { echo "❌ Σφάλμα στο mvn compile"; exit 1; }
 echo "📦 [STEP 3] Δημιουργία package..."
 mvn package || { echo "❌ Σφάλμα στο mvn package"; exit 1; }
 
-echo "🚀 [STEP 4] Εκτέλεση του project..."
-mvn exec:java -Dexec.mainClass="com.taskmanager.Main" || { echo "❌ Σφάλμα στην εκτέλεση του προγράμματος"; exit 1; }
+# ✅ Μετά το build, ρωτάμε τον χρήστη ποιο UI θέλει να εκτελέσει
+echo ""
+echo "🖥 Επιλογές Εκτέλεσης:"
+echo "1) GUI (JavaFX)"
+echo "2) Terminal Interface"
+echo -n "👉 Επίλεξε μια επιλογή (1 ή 2): "
+read choice
+
+# ✅ Εκτέλεση ανάλογα με την επιλογή του χρήστη
+case $choice in
+    1)
+        echo "🖥 Εκτέλεση GUI..."
+        mvn exec:java -Dexec.mainClass="com.taskmanager.Main" || { echo "❌ Σφάλμα στην εκτέλεση του GUI"; exit 1; }
+        ;;
+    2)
+        echo "🔍 Εκτέλεση Terminal Interface..."
+        mvn exec:java -Dexec.mainClass="com.taskmanager.Main" -Dexec.args="terminal" || { echo "❌ Σφάλμα στην εκτέλεση του Terminal Interface"; exit 1; }
+        ;;
+    *)
+        echo "❌ Μη έγκυρη επιλογή! Παρακαλώ εκτέλεσε ξανά το script και επέλεξε 1 ή 2."
+        exit 1
+        ;;
+esac
 
 echo "✅ Το script εκτελέστηκε επιτυχώς!"

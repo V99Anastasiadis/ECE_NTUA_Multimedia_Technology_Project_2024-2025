@@ -36,6 +36,8 @@ public class Controller {
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        appData = DataManager.loadData();
+        taskTable.getItems().setAll(appData.getTasks());
 
         // Φόρτωση των δεδομένων από το JSON αρχείο μέσω του DataManager
         appData = DataManager.loadData();

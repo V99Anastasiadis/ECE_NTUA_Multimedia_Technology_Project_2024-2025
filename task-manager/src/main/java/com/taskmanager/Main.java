@@ -3,7 +3,26 @@ package com.taskmanager;
 import java.io.File;
 import java.time.LocalDate;
 
-public class Main {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // Φόρτωση του FXML αρχείου
+        Parent root = FXMLLoader.load(getClass().getResource("/MediaLabAssistant.fxml"));
+
+        // Δημιουργία της σκηνής
+        Scene scene = new Scene(root, 800, 600);
+
+        // Ρύθμιση του παραθύρου
+        primaryStage.setTitle("MediaLab Task Manager");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
     public static void main(String[] args) {
         Priority defaultPriority = new Priority("default");
         System.out.println("\n🔄 [TEST] Φόρτωση δεδομένων από JSON...");
@@ -173,5 +192,11 @@ public class Main {
         }
 
         System.out.println("\n✅ [TEST] Όλες οι λειτουργίες ελέγχθηκαν επιτυχώς!");
+        if (args.length > 0 && args[0].equals("terminal")) {
+            TerminalInterface terminal = new TerminalInterface();
+            terminal.start();
+        } else {
+            launch(args);  // Εκτέλεση του GUI
+        }
     }
 }
