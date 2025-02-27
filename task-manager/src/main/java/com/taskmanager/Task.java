@@ -52,15 +52,15 @@ public class Task {
     }
 
     public Task(String title, String description, String category, String priority, LocalDate dueDate, TaskStatus status) {
+        this.reminders = new ArrayList<>();
         setTitle(title);
         setDescription(description);
         setCategory(category);
         setPriority(priority);
         setDueDate(dueDate);
-        setStatus(status);
-        this.reminders = new ArrayList<>();        
+        setStatus(status);        
     }
-    
+
     public void addDefaultReminders() {
         LocalDate today = LocalDate.now();
         String message = "default";
@@ -190,7 +190,7 @@ public class Task {
     }
 
     public void clearReminderAlerts() {
-        for (Reminder reminder : reminders) {
+        for (Reminder reminder : new ArrayList<>(reminders)) {
             deleteReminder(reminder);
         }
     }

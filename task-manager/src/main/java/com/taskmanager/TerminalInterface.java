@@ -181,6 +181,7 @@ public class TerminalInterface {
         if (task != null) {
             task.deleteTask(); 
             System.out.println("Task deleted successfully.");
+            appData.getTasks().remove(task);
         } else {
             System.out.println("Task not found.");
         }
@@ -219,6 +220,7 @@ public class TerminalInterface {
         Category category = findCategoryByName(name);
         if (category != null) {
             category.deleteCategory(); 
+            appData.getCategories().remove(category);
             appData.getTasks().removeIf(task -> task.getCategory().equals(category));
             System.out.println("Category deleted successfully.");
         } else {
@@ -266,6 +268,7 @@ public class TerminalInterface {
                 task.setPriority(defaultPriority.getName());
             }
             priority.deletePriority(defaultPriority); 
+            appData.getPriorities().remove(priority);
             System.out.println("Priority deleted successfully.");
         } else {
             System.out.println("Priority not found.");

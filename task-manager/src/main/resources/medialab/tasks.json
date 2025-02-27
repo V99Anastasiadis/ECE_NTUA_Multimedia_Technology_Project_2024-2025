@@ -1,14 +1,79 @@
 {
+  "priorities": [
+    {
+      "name": "High",
+      "tasks": [
+        "Develop UI",
+        "Update Project Plan"
+      ]
+    },
+    {
+      "name": "Medium",
+      "tasks": [
+        "Bug Fixing",
+        "Write Documentation"
+      ]
+    },
+    {
+      "name": "Low",
+      "tasks": [
+        "Deployment Docs"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Work",
+      "tasks": [
+        "Develop UI",
+        "Bug Fixing"
+      ]
+    },
+    {
+      "name": "Documentation",
+      "tasks": [
+        "Deployment Docs",
+        "Write Documentation"
+      ]
+    },
+    {
+      "name": "Planning",
+      "tasks": [
+        "Update Project Plan"
+      ]
+    }
+  ],
   "tasks": [
     {
-      "dueDate": "2024-12-31",
+      "reminders": [
+        {
+          "message": "UI deadline is tomorrow.",
+          "reminderDate": "2024-12-19"
+        }
+      ],
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface using JavaFX.",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Prepare for bug fixing review.",
+          "reminderDate": "2024-12-21"
+        }
+      ],
+      "dueDate": "2024-12-22",
       "description": "Fix critical bugs in the application.",
       "title": "Bug Fixing",
       "category": "Work",
       "priority": "Medium",
-      "status": "COMPLETED"
+      "status": "DELAYED"
     },
     {
+      "reminders": [],
       "dueDate": "2024-12-25",
       "description": "Prepare documentation for deployment.",
       "title": "Deployment Docs",
@@ -17,6 +82,12 @@
       "status": "DELAYED"
     },
     {
+      "reminders": [
+        {
+          "message": "Finish writing documentation.",
+          "reminderDate": "2024-12-27"
+        }
+      ],
       "dueDate": "2024-12-28",
       "description": "Document new features and API changes.",
       "title": "Write Documentation",
@@ -25,380 +96,22 @@
       "status": "DELAYED"
     },
     {
+      "reminders": [
+        {
+          "message": "Review project plan.",
+          "reminderDate": "2024-12-29"
+        },
+        {
+          "message": "Initial project plan review.",
+          "reminderDate": "2024-12-15"
+        }
+      ],
       "dueDate": "2024-12-30",
       "description": "Revise the project plan and deadlines.",
       "title": "Update Project Plan",
       "category": "Planning",
       "priority": "High",
       "status": "DELAYED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-25",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "stata^2",
-      "title": "skata",
-      "category": "school",
-      "priority": "urgent",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "DELAYED"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
-    },
-    {
-      "dueDate": "2024-12-20",
-      "description": "Create the user interface",
-      "title": "Develop UI",
-      "category": "Work",
-      "priority": "High",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing deletion of priority",
-      "title": "Task with Priority",
-      "category": "General",
-      "priority": "default",
-      "status": "OPEN"
-    },
-    {
-      "dueDate": "2025-02-26",
-      "description": "Testing reminder on completed task",
-      "title": "Completed Task",
-      "category": "General",
-      "priority": "Low",
-      "status": "COMPLETED"
     }
   ]
 }
