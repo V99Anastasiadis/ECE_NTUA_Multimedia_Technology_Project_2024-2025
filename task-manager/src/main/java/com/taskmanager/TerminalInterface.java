@@ -98,9 +98,19 @@ public class TerminalInterface {
         }
     }
 
+    private boolean isDuplicateTask(String title) {
+        return appData.getTasks().stream()
+            .anyMatch(task -> task.getTitle().equalsIgnoreCase(title));
+    }
+
     private void addTask() {
         System.out.print("Enter task title: ");
         String title = scanner.nextLine();
+        while(isDuplicateTask(title)) {
+            System.out.println("Task with the same title already exists. Please enter a different title.");
+            System.out.print("Enter task title: ");
+            title = scanner.nextLine();
+        }
         System.out.print("Enter task description: ");
         String description = scanner.nextLine();
         System.out.print("Enter task category: ");
@@ -212,7 +222,7 @@ public class TerminalInterface {
             }
         }
     }
-
+    
     private void addReminder() {
         System.out.print("Enter task title for reminder: ");
         String title = scanner.nextLine();

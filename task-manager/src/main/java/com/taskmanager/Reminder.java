@@ -1,5 +1,8 @@
 package com.taskmanager;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.json.simple.JSONObject;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -10,8 +13,8 @@ public class Reminder {
     private Alert alert;
     
     public Reminder(LocalDate reminderDate, String message, Task task) {
-        this.reminderDate = reminderDate;
-        this.message = message;
+        setReminderDate(reminderDate);
+        setMessage(message);
         this.task = task;
     }
 
@@ -30,6 +33,20 @@ public class Reminder {
             alert.setContentText("Task: " + task.getTitle() + "\nMessage: " + message);
             alert.showAndWait();
         }
+    }
+
+    public static Reminder fromJSON(JSONObject jsonObject, Task task) {
+        LocalDate reminderDate = LocalDate.parse((String) jsonObject.get("reminderDate"), DateTimeFormatter.ISO_DATE);
+        String message = (String) jsonObject.get("message");
+
+        return new Reminder(reminderDate, message, task);
+    }
+
+    public JSONObject toJSON() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("reminderDate", reminderDate.toString());
+        jsonObject.put("message", message);
+        return jsonObject;
     }
 
     public void deleteReminder() {

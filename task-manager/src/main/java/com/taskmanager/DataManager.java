@@ -27,6 +27,24 @@ public class DataManager {
                 Task task = Task.fromJSON(taskJSON);
                 appData.getTasks().add(task);
             }
+            JSONArray categoriesArray = (JSONArray) root.get("categories");
+        if (categoriesArray != null) {
+            for (Object obj : categoriesArray) {
+                JSONObject categoryJSON = (JSONObject) obj;
+                String categoryName = (String) categoryJSON.get("name");
+                Category category = new Category(categoryName);
+                appData.getCategories().add(category);
+            }
+        }
+        JSONArray prioritiesArray = (JSONArray) root.get("priorities");
+        if (prioritiesArray != null) {
+            for (Object obj : prioritiesArray) {
+                JSONObject priorityJSON = (JSONObject) obj;
+                String priorityName = (String) priorityJSON.get("name");
+                Priority priority = new Priority(priorityName);
+                appData.getPriorities().add(priority);
+            }
+        }
         } catch (IOException | ParseException e) {
             System.out.println("Δεν βρέθηκε αρχείο, δημιουργία νέου.");
         }
@@ -42,6 +60,21 @@ public class DataManager {
             tasksArray.add(task.toJSON());
         }
         root.put("tasks", tasksArray);
+        JSONArray categoriesArray = new JSONArray();
+        for (Category category : appData.getCategories()) {
+            JSONObject categoryJSON = new JSONObject();
+            categoryJSON.put("name", category.getName());
+            categoriesArray.add(categoryJSON);
+        }
+        root.put("categories", categoriesArray);
+        JSONArray prioritiesArray = new JSONArray();
+        for (Priority priority : appData.getPriorities()) {
+            JSONObject priorityJSON = new JSONObject();
+            priorityJSON.put("name", priority.getName());
+            prioritiesArray.add(priorityJSON);
+        }
+        root.put("priorities", prioritiesArray);
+
 
         try (FileWriter file = new FileWriter(FILE_PATH)) {
             file.write(gson.toJson(root));  // Χρήση Gson για pretty print JSON

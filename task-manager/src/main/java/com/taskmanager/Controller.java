@@ -77,12 +77,20 @@ public class Controller {
         DataManager.saveData(appData);
     }
 
+    private boolean isDuplicateTask(String title) {
+        return appData.getTasks().stream()
+            .anyMatch(task -> task.getTitle().equalsIgnoreCase(title));
+    }
+
     @FXML
     public void addTask(ActionEvent event) {
-        Task newTask = new Task("New Task", "Description", new Category("Work"), new Priority("High"), LocalDate.now(), Task.TaskStatus.OPEN);
-        appData.getTasks().add(newTask);
-        DataManager.saveData(appData);
-        taskTable.getItems().setAll(appData.getTasks()); // Ενημέρωση UI
+        String title = "New Task";  // Εδώ μπορεί να γίνει εισαγωγή από UI
+        if (!isDuplicateTask(title)) {
+            Task newTask = new Task("New Task", "Description", new Category("Work"), new Priority("High"), LocalDate.now(), Task.TaskStatus.OPEN);
+            appData.getTasks().add(newTask);
+            DataManager.saveData(appData);
+            taskTable.getItems().setAll(appData.getTasks()); // Ενημέρωση UI
+        }
     }
 
     @FXML

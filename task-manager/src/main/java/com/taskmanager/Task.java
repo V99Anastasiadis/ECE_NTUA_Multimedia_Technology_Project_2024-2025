@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Task {
@@ -33,6 +34,12 @@ public class Task {
             .filter(priority -> priority.getName().equalsIgnoreCase(name.getName()))
             .findFirst()
             .orElse(null);
+    }
+
+    private boolean isDuplicateReminder(LocalDate date, String message) {
+        return this.reminders.stream()  
+            .anyMatch(reminder -> reminder.getReminderDate().equals(date) && 
+                                  reminder.getMessage().equalsIgnoreCase(message));
     }
 
     public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
@@ -66,7 +73,16 @@ public class Task {
         Category category = new Category(categoryName);
         Priority priority = new Priority(priorityName);
 
-        return new Task(title, description, category, priority, dueDate, status);
+        Task task = new Task(title, description, category, priority, dueDate, status);
+        JSONArray remindersArray = (JSONArray) jsonObject.get("reminders");
+        if (remindersArray != null) {
+            for (Object obj : remindersArray) {
+                JSONObject reminderJSON = (JSONObject) obj;
+                Reminder reminder = Reminder.fromJSON(reminderJSON, task);
+                task.addReminder(reminder);
+            }
+        }
+        return task;
     }
 
     // 📌 **Διορθωμένη toJSON()**
@@ -78,7 +94,11 @@ public class Task {
         jsonObject.put("priority", priority.getName());
         jsonObject.put("dueDate", dueDate.toString());
         jsonObject.put("status", status.toString());
-
+        JSONArray remindersArray = new JSONArray();
+        for (Reminder reminder : reminders) {
+            remindersArray.add(reminder.toJSON());
+        }
+        jsonObject.put("reminders", remindersArray);
         return jsonObject;
     }
 
@@ -138,13 +158,15 @@ public class Task {
     // 📌 **Δημιουργία υπενθύμισης**
     public void setReminder(LocalDate reminderDate, String message) {
         LocalDate today = LocalDate.now();
-        if (getStatus() != Task.TaskStatus.COMPLETED && !reminderDate.isBefore(today)){
+        if (getStatus() != Task.TaskStatus.COMPLETED && !reminderDate.isBefore(today) && !isDuplicateReminder(reminderDate, message)) {
             Reminder reminder = new Reminder(reminderDate, message, this);
             reminders.add(reminder);  
         }else if(getStatus() == Task.TaskStatus.COMPLETED) {
             System.out.println("You can't set a reminder for a completed task");
         } else if(reminderDate.isBefore(today)) {
             System.out.println("You can't set a reminder for a past date");            
+        } else if(isDuplicateReminder(reminderDate, message)){
+            System.out.println("You can't set a duplicate reminder");
         }
     }
 
