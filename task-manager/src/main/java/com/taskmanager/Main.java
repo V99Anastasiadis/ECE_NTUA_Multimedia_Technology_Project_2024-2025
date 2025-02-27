@@ -40,14 +40,14 @@ public class Main extends Application {
             }
         }
 
-        DataManager.saveData(appData);
-        AppData finalAppData = DataManager.loadData();
-
         if (args.length > 0 && args[0].equals("terminal")) {
             TerminalInterface terminal = new TerminalInterface();
             terminal.start();
         } else {
             launch(args);  // Εκτέλεση του GUI
         }
+        
+        DataManager.saveData(appData);
+        AppData finalAppData = DataManager.loadData();
     }
 }

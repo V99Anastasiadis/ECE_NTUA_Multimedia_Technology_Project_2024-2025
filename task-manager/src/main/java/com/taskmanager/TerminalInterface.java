@@ -154,6 +154,7 @@ public class TerminalInterface {
         System.out.print("Enter due date (yyyy-MM-dd): ");
         LocalDate dueDate = LocalDate.parse(scanner.nextLine());
         Task task = new Task(title, description, categoryName, priorityName, dueDate, Task.TaskStatus.OPEN);
+        task.addDefaultReminders();
         appData.getTasks().add(task);
         System.out.println("Task added successfully.");
     }

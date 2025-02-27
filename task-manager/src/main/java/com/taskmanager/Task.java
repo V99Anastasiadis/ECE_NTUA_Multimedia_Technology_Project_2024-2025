@@ -58,7 +58,10 @@ public class Task {
         setPriority(priority);
         setDueDate(dueDate);
         setStatus(status);
-        this.reminders = new ArrayList<>();
+        this.reminders = new ArrayList<>();        
+    }
+    
+    public void addDefaultReminders() {
         LocalDate today = LocalDate.now();
         String message = "default";
         Reminder reminder = new Reminder(today.minusDays(7), message, this);
@@ -66,7 +69,7 @@ public class Task {
         reminder = new Reminder(today.minusDays(1), message, this);
         addReminder(reminder);
         reminder = new Reminder(today.minusDays(30), message, this);
-        addReminder(reminder);        
+        addReminder(reminder);
     }
 
     public static Task fromJSON(JSONObject jsonObject) {
