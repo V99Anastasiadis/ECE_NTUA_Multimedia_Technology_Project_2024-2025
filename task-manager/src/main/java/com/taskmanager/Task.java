@@ -19,14 +19,30 @@ public class Task {
     private LocalDate dueDate;
     private TaskStatus status;
     private List<Reminder> reminders;
+    private AppData appData;
+
+    private Category findCategoryByName(Category name) {
+        return appData.getCategories().stream()
+            .filter(category -> category.getName().equals(name.getName()))
+            .findFirst()
+            .orElse(null);
+    }
+
+    private Priority findPriorityByName(Priority name) {
+        return appData.getPriorities().stream()
+            .filter(priority -> priority.getName().equalsIgnoreCase(name.getName()))
+            .findFirst()
+            .orElse(null);
+    }
 
     public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
-        this.title = title;
-        this.description = description;
-        this.category = category;
-        this.priority = priority;
-        this.dueDate = dueDate;
-        this.status = status;
+        appData.getTasks().add(this);
+        setTitle(title);
+        setDescription(description);
+        setCategory(category);
+        setPriority(priority);
+        setDueDate(dueDate);
+        setStatus(status);
         this.reminders = new ArrayList<>();
         LocalDate today = LocalDate.now();
         String message = "default";
@@ -83,7 +99,11 @@ public class Task {
         if (this.category != null) {
             this.category.deleteTask(this);
         }
-        this.category = category; 
+        if (findCategoryByName(category) != null) {
+            this.category = category;
+        } else {
+            this.category = new Category(category.getName());
+        }
         category.addTask(this);
     }
 
@@ -91,8 +111,12 @@ public class Task {
         if (this.priority != null) {
             this.priority.deleteTask(this);
         }
-        this.priority = priorityNew;
-        priorityNew.addTask(this);
+        if (findPriorityByName(priorityNew) != null) {
+            this.priority = priorityNew;
+        } else {
+            this.priority = new Priority(priorityNew.getName());
+        }
+        priority.addTask(this);
     }
 
     public void setDueDate(LocalDate dueDate) { 

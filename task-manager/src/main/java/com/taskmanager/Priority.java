@@ -4,9 +4,11 @@ import java.util.List;
 public class Priority {
     private List<Task> tasks;
     private String name;
+    private AppData appData;
     public Priority(String string) {
-        this.name = string;
+        setName(string);
         this.tasks = new ArrayList<>();
+        appData.getPriorities().add(this);
     }
 
     public String getName() { return name; }
