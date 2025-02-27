@@ -22,19 +22,28 @@ public class Task {
     private List<Reminder> reminders;
     private AppData appData;
 
-    private Category findCategoryByName(Category name) {
+    private Category findCategoryByName(String name) {
+        if (appData == null || appData.getCategories() == null) {
+            return null;
+        }
         return appData.getCategories().stream()
-            .filter(category -> category.getName().equals(name.getName()))
-            .findFirst()
-            .orElse(null);
+                .filter(category -> category.getName() != null && category.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
+    
 
-    private Priority findPriorityByName(Priority name) {
+    private Priority findPriorityByName(String name) {
+        if (appData == null || appData.getPriorities() == null) {
+            return null;
+        }
         return appData.getPriorities().stream()
-            .filter(priority -> priority.getName().equalsIgnoreCase(name.getName()))
-            .findFirst()
-            .orElse(null);
+                .filter(priority -> priority.getName() != null && priority.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
+    
+    
 
     private boolean isDuplicateReminder(LocalDate date, String message) {
         return this.reminders.stream()  
@@ -42,8 +51,7 @@ public class Task {
                                   reminder.getMessage().equalsIgnoreCase(message));
     }
 
-    public Task(String title, String description, Category category, Priority priority, LocalDate dueDate, TaskStatus status) {
-        appData.getTasks().add(this);
+    public Task(String title, String description, String category, String priority, LocalDate dueDate, TaskStatus status) {
         setTitle(title);
         setDescription(description);
         setCategory(category);
@@ -61,7 +69,6 @@ public class Task {
         addReminder(reminder);        
     }
 
-    // 📌 **Διορθωμένη fromJSON()**
     public static Task fromJSON(JSONObject jsonObject) {
         String title = (String) jsonObject.get("title");
         String description = (String) jsonObject.get("description");
@@ -73,7 +80,7 @@ public class Task {
         Category category = new Category(categoryName);
         Priority priority = new Priority(priorityName);
 
-        Task task = new Task(title, description, category, priority, dueDate, status);
+        Task task = new Task(title, description, categoryName, priorityName, dueDate, status);
         JSONArray remindersArray = (JSONArray) jsonObject.get("reminders");
         if (remindersArray != null) {
             for (Object obj : remindersArray) {
@@ -85,7 +92,6 @@ public class Task {
         return task;
     }
 
-    // 📌 **Διορθωμένη toJSON()**
     public JSONObject toJSON() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("title", title);
@@ -102,7 +108,7 @@ public class Task {
         return jsonObject;
     }
 
-    // 📌 **Getters**
+    //  **Getters**
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public Category getCategory() { return category; }
@@ -111,32 +117,32 @@ public class Task {
     public TaskStatus getStatus() { return status; }
     public List<Reminder> getReminders() { return reminders; }
 
-    // 📌 **Setters**
+    //  **Setters**
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
 
-    public void setCategory(Category category) { 
+    public void setCategory(String category) { 
         if (this.category != null) {
             this.category.deleteTask(this);
         }
         if (findCategoryByName(category) != null) {
-            this.category = category;
+            this.category = findCategoryByName(category);
         } else {
-            this.category = new Category(category.getName());
+            this.category = new Category(category);
         }
-        category.addTask(this);
+        this.category.addTask(this);
     }
 
-    public void setPriority(Priority priorityNew) {
+    public void setPriority(String priorityNew) {
         if (this.priority != null) {
             this.priority.deleteTask(this);
         }
         if (findPriorityByName(priorityNew) != null) {
-            this.priority = priorityNew;
+            this.priority = findPriorityByName(priorityNew);
         } else {
-            this.priority = new Priority(priorityNew.getName());
+            this.priority = new Priority(priorityNew);
         }
-        priority.addTask(this);
+        this.priority.addTask(this);
     }
 
     public void setDueDate(LocalDate dueDate) { 
@@ -155,7 +161,7 @@ public class Task {
         }
     }
 
-    // 📌 **Δημιουργία υπενθύμισης**
+    //  **Δημιουργία υπενθύμισης**
     public void setReminder(LocalDate reminderDate, String message) {
         LocalDate today = LocalDate.now();
         if (getStatus() != Task.TaskStatus.COMPLETED && !reminderDate.isBefore(today) && !isDuplicateReminder(reminderDate, message)) {
@@ -174,7 +180,7 @@ public class Task {
         reminders.add(reminder);
     }
 
-    // 📌 **Διαγραφή υπενθύμισης**
+    //  **Διαγραφή υπενθύμισης**
     public void deleteReminder(Reminder reminder) {
         reminders.remove(reminder);
         reminder.deleteReminder();
@@ -186,7 +192,7 @@ public class Task {
         }
     }
 
-    // 📌 **Διαγραφή εργασίας**
+    //  **Διαγραφή εργασίας**
     public void deleteTask() {
         clearReminderAlerts();
 

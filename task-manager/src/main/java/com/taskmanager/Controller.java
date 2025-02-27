@@ -86,7 +86,7 @@ public class Controller {
     public void addTask(ActionEvent event) {
         String title = "New Task";  // Εδώ μπορεί να γίνει εισαγωγή από UI
         if (!isDuplicateTask(title)) {
-            Task newTask = new Task("New Task", "Description", new Category("Work"), new Priority("High"), LocalDate.now(), Task.TaskStatus.OPEN);
+            Task newTask = new Task("New Task", "Description", "Work", "High", LocalDate.now(), Task.TaskStatus.OPEN);
             appData.getTasks().add(newTask);
             DataManager.saveData(appData);
             taskTable.getItems().setAll(appData.getTasks()); // Ενημέρωση UI

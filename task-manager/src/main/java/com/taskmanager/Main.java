@@ -40,11 +40,6 @@ public class Main extends Application {
             }
         }
 
-        for (Task task : appData.getTasks()) {
-            //needs modifications to show alla the task details
-            System.out.println("➡ " + task.getTitle() + " (" + task.getStatus() + ")");
-        }
-
         DataManager.saveData(appData);
         AppData finalAppData = DataManager.loadData();
 

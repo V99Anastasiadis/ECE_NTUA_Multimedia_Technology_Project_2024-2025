@@ -92,15 +92,49 @@ public class TerminalInterface {
     }
 
     private void viewTasks() {
-        System.out.println("\n=== Tasks ===");
+        System.out.println("\n=== Εργασίες ===");
+        if (appData.getTasks().isEmpty()) {
+            System.out.println("Δεν υπάρχουν διαθέσιμες εργασίες.");
+            return;
+        }
         for (Task task : appData.getTasks()) {
-            System.out.println(task.getTitle() + " - " + task.getStatus());
+            System.out.println("Τίτλος: " + task.getTitle());
+            System.out.println("Περιγραφή: " + task.getDescription());
+            System.out.println("Κατηγορία: " + task.getCategory().getName());
+            System.out.println("Προτεραιότητα: " + task.getPriority().getName());
+            System.out.println("Ημερομηνία Προθεσμίας: " + task.getDueDate());
+            System.out.println("Κατάσταση: " + task.getStatus());
+            
+            if (!task.getReminders().isEmpty()) {
+                System.out.println("Υπενθυμίσεις:");
+                for (Reminder reminder : task.getReminders()) {
+                    System.out.println("  - Ημερομηνία: " + reminder.getReminderDate() + ", Μήνυμα: " + reminder.getMessage());
+                }
+            } else {
+                System.out.println("Δεν υπάρχουν υπενθυμίσεις για αυτή την εργασία.");
+            }
+    
+            System.out.println("--------------------------------");
         }
     }
-
+    
     private boolean isDuplicateTask(String title) {
         return appData.getTasks().stream()
             .anyMatch(task -> task.getTitle().equalsIgnoreCase(title));
+    }
+
+    private Category findCategoryByName(String name) {
+        return appData.getCategories().stream()
+            .filter(category -> category.getName().equalsIgnoreCase(name))
+            .findFirst()
+            .orElse(null);
+    }
+
+    private Priority findPriorityByName(String name) {
+        return appData.getPriorities().stream()
+            .filter(priority -> priority.getName().equalsIgnoreCase(name))
+            .findFirst()
+            .orElse(null);
     }
 
     private void addTask() {
@@ -119,10 +153,7 @@ public class TerminalInterface {
         String priorityName = scanner.nextLine();
         System.out.print("Enter due date (yyyy-MM-dd): ");
         LocalDate dueDate = LocalDate.parse(scanner.nextLine());
-        
-        Category category = new Category(categoryName);
-        Priority priority = new Priority(priorityName);
-        Task task = new Task(title, description, category, priority, dueDate, Task.TaskStatus.OPEN);
+        Task task = new Task(title, description, categoryName, priorityName, dueDate, Task.TaskStatus.OPEN);
         appData.getTasks().add(task);
         System.out.println("Task added successfully.");
     }
@@ -147,7 +178,7 @@ public class TerminalInterface {
         String title = scanner.nextLine();
         Task task = findTaskByTitle(title);
         if (task != null) {
-            task.deleteTask(); // Κλήση της υπάρχουσας μεθόδου
+            task.deleteTask(); 
             System.out.println("Task deleted successfully.");
         } else {
             System.out.println("Task not found.");
@@ -155,11 +186,24 @@ public class TerminalInterface {
     }
 
     private void viewCategories() {
-        System.out.println("\n=== Categories ===");
-        for (Category category : appData.getCategories()) {
-            System.out.println(category.getName());
+        System.out.println("\n=== Κατηγορίες ===");
+        if (appData.getCategories().isEmpty()) {
+            System.out.println("Δεν υπάρχουν διαθέσιμες κατηγορίες.");
+            return;
         }
-    }
+        for (Category category : appData.getCategories()) {
+            System.out.println("Όνομα: " + category.getName());
+            if (!category.getTasks().isEmpty()) {
+                System.out.println("Εργασίες:");
+                for (Task task : category.getTasks()) {
+                    System.out.println("  - " + task.getTitle());
+                }
+            } else {
+                System.out.println("Δεν υπάρχουν εργασίες σε αυτή την κατηγορία.");
+            }
+            System.out.println("--------------------------------");
+        }
+    }    
 
     private void addCategory() {
         System.out.print("Enter category name: ");
@@ -173,7 +217,7 @@ public class TerminalInterface {
         String name = scanner.nextLine();
         Category category = findCategoryByName(name);
         if (category != null) {
-            category.deleteCategory(); // Κλήση της υπάρχουσας μεθόδου
+            category.deleteCategory(); 
             appData.getTasks().removeIf(task -> task.getCategory().equals(category));
             System.out.println("Category deleted successfully.");
         } else {
@@ -182,11 +226,24 @@ public class TerminalInterface {
     }
 
     private void viewPriorities() {
-        System.out.println("\n=== Priorities ===");
-        for (Priority priority : appData.getPriorities()) {
-            System.out.println(priority.getName());
+        System.out.println("\n=== Προτεραιότητες ===");
+        if (appData.getPriorities().isEmpty()) {
+            System.out.println("Δεν υπάρχουν διαθέσιμες προτεραιότητες.");
+            return;
         }
-    }
+        for (Priority priority : appData.getPriorities()) {
+            System.out.println("Όνομα: " + priority.getName());
+            if (!priority.getTasks().isEmpty()) {
+                System.out.println("Εργασίες:");
+                for (Task task : priority.getTasks()) {
+                    System.out.println("  - " + task.getTitle());
+                }
+            } else {
+                System.out.println("Δεν υπάρχουν εργασίες σε αυτή την προτεραιότητα.");
+            }
+            System.out.println("--------------------------------");
+        }
+    }    
 
     private void addPriority() {
         System.out.print("Enter priority name: ");
@@ -205,9 +262,9 @@ public class TerminalInterface {
         }
         if (priority != null) {
             for (Task task : priority.getTasks()) {  
-                task.setPriority(defaultPriority);
+                task.setPriority(defaultPriority.getName());
             }
-            priority.deletePriority(defaultPriority); // Κλήση της υπάρχουσας μεθόδου
+            priority.deletePriority(defaultPriority); 
             System.out.println("Priority deleted successfully.");
         } else {
             System.out.println("Priority not found.");
@@ -215,14 +272,25 @@ public class TerminalInterface {
     }
 
     private void viewReminders() {
-        System.out.println("\n=== Reminders ===");
+        System.out.println("\n=== Υπενθυμίσεις ===");
+        boolean foundReminders = false;
+    
         for (Task task : appData.getTasks()) {
-            for (Reminder reminder : task.getReminders()) {
-                System.out.println("Task: " + task.getTitle() + " - Reminder: " + reminder.getMessage());
+            if (!task.getReminders().isEmpty()) {
+                foundReminders = true;
+                System.out.println("Εργασία: " + task.getTitle());
+                for (Reminder reminder : task.getReminders()) {
+                    System.out.println("  - Ημερομηνία: " + reminder.getReminderDate() + ", Μήνυμα: " + reminder.getMessage());
+                }
+                System.out.println("--------------------------------");
             }
         }
-    }
     
+        if (!foundReminders) {
+            System.out.println("Δεν υπάρχουν διαθέσιμες υπενθυμίσεις.");
+        }
+    }
+      
     private void addReminder() {
         System.out.print("Enter task title for reminder: ");
         String title = scanner.nextLine();
@@ -232,7 +300,7 @@ public class TerminalInterface {
             LocalDate reminderDate = LocalDate.parse(scanner.nextLine());
             System.out.print("Enter reminder message: ");
             String message = scanner.nextLine();
-            task.setReminder(reminderDate, message); // Κλήση της μεθόδου setReminder
+            task.setReminder(reminderDate, message); 
             System.out.println("Reminder added successfully.");
         } else {
             System.out.println("Task not found.");
@@ -254,7 +322,7 @@ public class TerminalInterface {
                 }
             }
             if (reminderToDelete != null) {
-                task.deleteReminder(reminderToDelete); // Κλήση της μεθόδου deleteReminder
+                task.deleteReminder(reminderToDelete); 
                 System.out.println("Reminder deleted successfully.");
             } else {
                 System.out.println("Reminder not found.");
@@ -281,20 +349,6 @@ public class TerminalInterface {
     private Task findTaskByTitle(String title) {
         return appData.getTasks().stream()
             .filter(task -> task.getTitle().equalsIgnoreCase(title))
-            .findFirst()
-            .orElse(null);
-    }
-
-    private Category findCategoryByName(String name) {
-        return appData.getCategories().stream()
-            .filter(category -> category.getName().equalsIgnoreCase(name))
-            .findFirst()
-            .orElse(null);
-    }
-
-    private Priority findPriorityByName(String name) {
-        return appData.getPriorities().stream()
-            .filter(priority -> priority.getName().equalsIgnoreCase(name))
             .findFirst()
             .orElse(null);
     }

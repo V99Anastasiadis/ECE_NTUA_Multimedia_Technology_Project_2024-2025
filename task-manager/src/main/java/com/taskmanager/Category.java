@@ -4,13 +4,11 @@ import java.util.List;
 public class Category {
     private List<Task> tasks;
     private String name;
-    private AppData appData;
 
     //Ο χρήστης θα μπορεί να ορίζει νέες κατηγορίες, δίνοντας το σχετικό όνομα.
     public Category(String name){
         this.tasks = new ArrayList<>();
         setName(name);
-        appData.getCategories().add(this);
     }
 
     public String getName() { return name; }

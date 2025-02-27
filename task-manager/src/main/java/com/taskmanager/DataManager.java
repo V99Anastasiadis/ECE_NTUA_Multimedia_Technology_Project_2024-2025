@@ -79,7 +79,7 @@ public class DataManager {
         try (FileWriter file = new FileWriter(FILE_PATH)) {
             file.write(gson.toJson(root));  // Χρήση Gson για pretty print JSON
             file.flush();
-            System.out.println("✅ Δεδομένα αποθηκεύτηκαν με μορφοποιημένο JSON!");
+            System.out.println(" Δεδομένα αποθηκεύτηκαν με μορφοποιημένο JSON!");
         } catch (IOException e) {
             e.printStackTrace();
         }
