@@ -15,6 +15,7 @@ public class TerminalInterface {
     }
 
     public void start() {
+        appData.getPriorities().add(defaultPriority);
         while (true) {
             System.out.println("\n=== MediaLab Task Manager ===");
             System.out.println("1. View Tasks");
@@ -163,6 +164,7 @@ public class TerminalInterface {
         Category category = findCategoryByName(name);
         if (category != null) {
             category.deleteCategory(); // Κλήση της υπάρχουσας μεθόδου
+            appData.getTasks().removeIf(task -> task.getCategory().equals(category));
             System.out.println("Category deleted successfully.");
         } else {
             System.out.println("Category not found.");
@@ -187,7 +189,14 @@ public class TerminalInterface {
         System.out.print("Enter priority name to delete: ");
         String name = scanner.nextLine();
         Priority priority = findPriorityByName(name);
+        if (priority.getName().equals("default")) {
+            System.out.println("You can't delete the default");
+            return;
+        }
         if (priority != null) {
+            for (Task task : priority.getTasks()) {  
+                task.setPriority(defaultPriority);
+            }
             priority.deletePriority(defaultPriority); // Κλήση της υπάρχουσας μεθόδου
             System.out.println("Priority deleted successfully.");
         } else {

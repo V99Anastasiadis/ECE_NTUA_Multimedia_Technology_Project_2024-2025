@@ -30,6 +30,8 @@ public class Controller {
      */
     @FXML
     public void initialize() {
+        Priority defaultPriority = new Priority("default");
+        appData.getPriorities().add(defaultPriority);
         // Ορισμός του cell value factory για κάθε στήλη
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));

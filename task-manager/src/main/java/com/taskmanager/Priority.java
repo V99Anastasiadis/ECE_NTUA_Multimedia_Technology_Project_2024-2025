@@ -15,12 +15,9 @@ public class Priority {
     public void setName(String name) { 
         if(this.name.equals("default")){
             System.out.println("You can't change the name of the default");
-            return;
-        } else if (name.equals("default")) { //not sure who to handle new priorities
-                //not sure if this is the correct way to handle the default
+        } else if (name.equals("default")) { 
                 System.out.println("You can't use the name default");
-                return;
-            } 
+        } 
         else this.name = name; 
     }
 
@@ -31,15 +28,5 @@ public class Priority {
 
     public void deleteTask(Task task) { tasks.remove(task); }
 
-    public void deletePriority(Priority defaultPriority) {
-        String priorityName = this.getName();
-        if (!priorityName.equals("default")) {
-            for (Task task : new ArrayList<>(tasks)) {  
-                task.setPriority(defaultPriority);
-            }
-            tasks.clear();
-        } else {
-            System.out.println("You can't delete the default");
-        }
-    }
+    public void deletePriority(Priority defaultPriority) { tasks.clear(); }
 }

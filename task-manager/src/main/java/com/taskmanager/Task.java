@@ -28,6 +28,14 @@ public class Task {
         this.dueDate = dueDate;
         this.status = status;
         this.reminders = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        String message = "default";
+        Reminder reminder = new Reminder(today.minusDays(7), message, this);
+        addReminder(reminder);    
+        reminder = new Reminder(today.minusDays(1), message, this);
+        addReminder(reminder);
+        reminder = new Reminder(today.minusDays(30), message, this);
+        addReminder(reminder);        
     }
 
     // 📌 **Διορθωμένη fromJSON()**
@@ -105,8 +113,19 @@ public class Task {
 
     // 📌 **Δημιουργία υπενθύμισης**
     public void setReminder(LocalDate reminderDate, String message) {
-        Reminder reminder = new Reminder(reminderDate, message, this, false);
-        reminders.add(reminder);    
+        LocalDate today = LocalDate.now();
+        if (getStatus() != Task.TaskStatus.COMPLETED && !reminderDate.isBefore(today)){
+            Reminder reminder = new Reminder(reminderDate, message, this);
+            reminders.add(reminder);  
+        }else if(getStatus() == Task.TaskStatus.COMPLETED) {
+            System.out.println("You can't set a reminder for a completed task");
+        } else if(reminderDate.isBefore(today)) {
+            System.out.println("You can't set a reminder for a past date");            
+        }
+    }
+
+    public void addReminder(Reminder reminder) {
+        reminders.add(reminder);
     }
 
     // 📌 **Διαγραφή υπενθύμισης**
@@ -117,7 +136,7 @@ public class Task {
 
     public void clearReminderAlerts() {
         for (Reminder reminder : reminders) {
-            reminder.deleteReminder();
+            deleteReminder(reminder);
         }
     }
 
