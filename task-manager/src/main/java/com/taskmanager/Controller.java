@@ -24,14 +24,28 @@ public class Controller {
     // Αντικείμενο για τα δεδομένα της εφαρμογής
     private AppData appData;
 
+    private Priority findPriorityByName(String name) {
+        return appData.getPriorities().stream()
+            .filter(priority -> priority.getName().equalsIgnoreCase(name))
+            .findFirst()
+            .orElse(null);
+    }
+    
     /**
      * Η initialize() μέθοδος εκτελείται αυτόματα μετά τη φόρτωση του FXML.
      * Εδώ ορίζουμε τις στήλες του TableView και φορτώνουμε τα δεδομένα.
      */
     @FXML
     public void initialize() {
-        Priority defaultPriority = new Priority("default");
-        appData.getPriorities().add(defaultPriority);
+        // Φόρτωση των δεδομένων από το JSON αρχείο μέσω του DataManager
+        appData = DataManager.loadData();
+        if (appData == null) {
+            appData = new AppData();
+        }
+        if (findPriorityByName("default") == null) {
+            Priority defaultPriority = new Priority("default");
+            appData.getPriorities().add(defaultPriority);
+        }
         // Ορισμός του cell value factory για κάθε στήλη
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -40,12 +54,6 @@ public class Controller {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         appData = DataManager.loadData();
         taskTable.getItems().setAll(appData.getTasks());
-
-        // Φόρτωση των δεδομένων από το JSON αρχείο μέσω του DataManager
-        appData = DataManager.loadData();
-        if (appData == null) {
-            appData = new AppData();
-        }
         taskTable.getItems().setAll(appData.getTasks());
         checkReminders();
     }

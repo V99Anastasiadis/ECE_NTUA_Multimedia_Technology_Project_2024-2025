@@ -35,7 +35,10 @@ public class TerminalInterface {
             System.out.println("12. Add Reminder");
             System.out.println("13. Delete Reminder");
             System.out.println("14. Search Tasks");
-            System.out.println("15. Exit");
+            System.out.println("15. Modify Category Name");
+            System.out.println("16. Modify Priority Name");
+            System.out.println("17. Modify Reminder");
+            System.out.println("18. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -85,6 +88,15 @@ public class TerminalInterface {
                     searchTasks();
                     break;
                 case 15:
+                    modifyCategoryName();
+                    break;
+                case 16:
+                    modifyPriorityName();
+                    break;
+                case 17:
+                    modifyReminder();
+                    break;
+                case 18:
                     DataManager.saveData(appData);
                     System.out.println("Exiting...");
                     return;
@@ -384,6 +396,39 @@ public class TerminalInterface {
         }
     }
 
+    private void modifyCategoryName() {
+        System.out.print("Enter the current category name: ");
+        String oldName = scanner.nextLine();
+        Category category = findCategoryByName(oldName);
+        if (category == null) {
+            System.out.println("Category not found.");
+            return;
+        }
+        System.out.print("Enter the new category name: ");
+        String newName = scanner.nextLine();
+        // Απλή αλλαγή ονόματος μέσω setName, οι εργασίες που δείχνουν σε αυτό το αντικείμενο θα ενημερωθούν αυτόματα
+        category.setName(newName);
+        System.out.println("Category name updated successfully.");
+    }
+
+    private void modifyPriorityName() {
+        System.out.print("Enter the current priority name: ");
+        String oldName = scanner.nextLine();
+        Priority priority = findPriorityByName(oldName);
+        if (priority == null) {
+            System.out.println("Priority not found.");
+            return;
+        }
+        if (priority.getName().equalsIgnoreCase("default")) {
+            System.out.println("You can't change the name of the default priority.");
+            return;
+        }
+        System.out.print("Enter the new priority name: ");
+        String newName = scanner.nextLine();
+        priority.setName(newName);  // Το setName() της Priority διαχειρίζεται το default όνομα
+        System.out.println("Priority name updated successfully.");
+    }
+  
     private Task findTaskByTitle(String title) {
         return appData.getTasks().stream()
             .filter(task -> task.getTitle().equalsIgnoreCase(title))
@@ -391,6 +436,48 @@ public class TerminalInterface {
             .orElse(null);
     }
 
+    private void modifyReminder() {
+        // Ζητούμε από τον χρήστη το task που θέλει να τροποποιήσει την υπενθύμιση
+        System.out.print("Enter task title for reminder modification: ");
+        String taskTitle = scanner.nextLine();
+        Task task = findTaskByTitle(taskTitle);
+        
+        if (task == null) {
+            System.out.println("Task not found.");
+            return;
+        }
+        
+        // Ζητούμε το τρέχον μήνυμα της υπενθύμισης που θέλουμε να τροποποιήσουμε
+        System.out.print("Enter current reminder message to modify: ");
+        String currentMessage = scanner.nextLine();
+        
+        Reminder targetReminder = null;
+        for (Reminder r : task.getReminders()) {
+            if (r.getMessage().equalsIgnoreCase(currentMessage)) {
+                targetReminder = r;
+                break;
+            }
+        }
+        
+        if (targetReminder == null) {
+            System.out.println("Reminder not found for this task.");
+            return;
+        }
+        
+        // Ζητούμε το νέο μήνυμα και τη νέα ημερομηνία για την υπενθύμιση
+        System.out.print("Enter new reminder message: ");
+        String newMessage = scanner.nextLine();
+        
+        System.out.print("Enter new reminder date (yyyy-MM-dd): ");
+        LocalDate newDate = LocalDate.parse(scanner.nextLine());
+        
+        // Ενημερώνουμε την υπενθύμιση
+        targetReminder.setMessage(newMessage);
+        targetReminder.setReminderDate(newDate);
+        
+        System.out.println("Reminder updated successfully.");
+    }
+    
     public static void main(String[] args) {
         TerminalInterface terminal = new TerminalInterface();
         terminal.start();
