@@ -36,7 +36,7 @@ public class Main extends Application {
             if (task.getDueDate().isBefore(today) && task.getStatus() != Task.TaskStatus.COMPLETED) {
                 task.setStatus(Task.TaskStatus.DELAYED);
                 //needs to print for cli or set alert for gui
-                //System.out.println("⚠️ Η εργασία '" + task.getTitle() + "' είναι καθυστερημένη!");
+                System.out.println("⚠️ Η εργασία '" + task.getTitle() + "' είναι καθυστερημένη!");
             }
         }
 
@@ -48,6 +48,5 @@ public class Main extends Application {
         }
         
         DataManager.saveData(appData);
-        AppData finalAppData = DataManager.loadData();
     }
 }

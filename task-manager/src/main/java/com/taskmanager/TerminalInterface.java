@@ -17,6 +17,9 @@ public class TerminalInterface {
     public void start() {
         appData.getPriorities().add(defaultPriority);
         while (true) {
+            // 1) Εκτύπωση συγκεντρωτικών πληροφοριών
+            printStats();
+            // 2) Εκτύπωση βασικού μενού
             System.out.println("\n=== MediaLab Task Manager ===");
             System.out.println("1. View Tasks");
             System.out.println("2. Add Task");
@@ -89,6 +92,37 @@ public class TerminalInterface {
                     System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    /**
+     * Εκτυπώνει τις συγκεντρωτικές πληροφορίες:
+     * (i) Σύνολο εργασιών
+     * (ii) Αριθμός COMPLETED
+     * (iii) Αριθμός DELAYED
+     * (iv) Αριθμός με προθεσμία εντός 7 ημερών
+     */
+    private void printStats() {
+        long total = appData.getTasks().size();
+
+        long completed = appData.getTasks().stream()
+            .filter(t -> t.getStatus() == Task.TaskStatus.COMPLETED)
+            .count();
+
+        long delayed = appData.getTasks().stream()
+            .filter(t -> t.getStatus() == Task.TaskStatus.DELAYED)
+            .count();
+
+        LocalDate now = LocalDate.now();
+        long upcoming = appData.getTasks().stream()
+            .filter(t -> t.getDueDate().isBefore(now.plusDays(7)) 
+                      && (t.getStatus() != Task.TaskStatus.COMPLETED))
+            .count();
+
+        System.out.println("\n=== ΣΥΝΟΠΤΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ ===");
+        System.out.println("Σύνολο εργασιών      : " + total);
+        System.out.println("Ολοκληρωμένες        : " + completed);
+        System.out.println("Καθυστερημένες       : " + delayed);
+        System.out.println("Λήγουν εντός 7 ημερών: " + upcoming);
     }
 
     private void viewTasks() {
