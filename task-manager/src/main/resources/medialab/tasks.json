@@ -1,279 +1,42 @@
 {
-  "tasks": [
+  "priorities": [
     {
-      "title": "Develop UI",
-      "description": "Create the user interface using JavaFX.",
-      "category": "Work",
-      "priority": "High",
-      "dueDate": "2024-12-20",
-      "status": "DELAYED",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true },
-        { "reminderDate": "2025-02-26", "message": "default", "auto": true },
-        { "reminderDate": "2024-12-19", "message": "UI deadline is tomorrow.", "auto": false }
+      "name": "High",
+      "tasks": [
+        "Develop UI",
+        "Update Project Plan",
+        "API Refactor",
+        "UI Polish",
+        "Security Audit",
+        "Client Presentation",
+        "Completed Task Example 1",
+        "Beta Release"
       ]
     },
     {
-      "title": "Bug Fixing",
-      "description": "Fix critical bugs in the application.",
-      "category": "Work",
-      "priority": "Medium",
-      "dueDate": "2024-12-22",
-      "status": "IN_PROGRESS",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true }
+      "name": "Medium",
+      "tasks": [
+        "Bug Fixing",
+        "Write Documentation",
+        "Performance Tests",
+        "User Feedback Analysis",
+        "Logo Redesign",
+        "Delayed Task Example 1",
+        "Docker Setup",
+        "Marketing Plan",
+        "Analytics Setup"
       ]
     },
     {
-      "title": "Deployment Docs",
-      "description": "Prepare documentation for deployment.",
-      "category": "Documentation",
-      "priority": "Low",
-      "dueDate": "2024-12-25",
-      "status": "OPEN",
-      "reminders": []
-    },
-    {
-      "title": "Write Documentation",
-      "description": "Document new features and API changes.",
-      "category": "Documentation",
-      "priority": "Medium",
-      "dueDate": "2024-12-28",
-      "status": "POSTPONED",
-      "reminders": [
-        { "reminderDate": "2024-12-27", "message": "Finish writing documentation.", "auto": false }
-      ]
-    },
-    {
-      "title": "Update Project Plan",
-      "description": "Revise the project plan and deadlines.",
-      "category": "Planning",
-      "priority": "High",
-      "dueDate": "2024-12-30",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true },
-        { "reminderDate": "2025-02-26", "message": "default", "auto": true }
-      ]
-    },
-    {
-      "title": "API Refactor",
-      "description": "Refactor the backend APIs for better performance.",
-      "category": "Backend",
-      "priority": "High",
-      "dueDate": "2025-01-10",
-      "status": "DELAYED",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true },
-        { "reminderDate": "2025-02-26", "message": "default", "auto": true },
-        { "reminderDate": "2025-01-28", "message": "default", "auto": true }
-      ]
-    },
-    {
-      "title": "Performance Tests",
-      "description": "Run performance tests on new code.",
-      "category": "Testing",
-      "priority": "Medium",
-      "dueDate": "2025-01-12",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true },
-        { "reminderDate": "2025-01-11", "message": "Start performance tests.", "auto": false }
-      ]
-    },
-    {
-      "title": "UI Polish",
-      "description": "Finalize UI design and fix layout issues.",
-      "category": "Work",
-      "priority": "High",
-      "dueDate": "2025-01-08",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-20", "message": "default", "auto": true },
-        { "reminderDate": "2025-02-26", "message": "default", "auto": true }
-      ]
-    },
-    {
-      "title": "Database Migration",
-      "description": "Migrate database schema to the new version.",
-      "category": "Backend",
-      "priority": "Low",
-      "dueDate": "2025-01-01",
-      "status": "COMPLETED",
-      "reminders": []
-    },
-    {
-      "title": "User Feedback Analysis",
-      "description": "Review user feedback and prepare a summary report.",
-      "category": "Research",
-      "priority": "Medium",
-      "dueDate": "2025-01-15",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-01-14", "message": "Last day to gather feedback.", "auto": false }
-      ]
-    },
-    {
-      "title": "Security Audit",
-      "description": "Perform a security audit on the entire application.",
-      "category": "Security",
-      "priority": "High",
-      "dueDate": "2025-02-10",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-09", "message": "Prepare security audit checklist.", "auto": false }
-      ]
-    },
-    {
-      "title": "Logo Redesign",
-      "description": "Design a new logo for marketing materials.",
-      "category": "Design",
-      "priority": "Medium",
-      "dueDate": "2025-01-25",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-01-20", "message": "Show logo drafts to the marketing team.", "auto": false },
-        { "reminderDate": "2025-01-24", "message": "Finalize logo design.", "auto": true }
-      ]
-    },
-    {
-      "title": "Client Presentation",
-      "description": "Prepare slides and demos for the client presentation.",
-      "category": "Meetings",
-      "priority": "High",
-      "dueDate": "2025-01-18",
-      "status": "IN_PROGRESS",
-      "reminders": [
-        { "reminderDate": "2025-01-17", "message": "Rehearse final presentation.", "auto": false }
-      ]
-    },
-    {
-      "title": "Code Review",
-      "description": "Review pull requests and provide feedback.",
-      "category": "Work",
-      "priority": "Medium",
-      "dueDate": "2025-01-02",
-      "status": "COMPLETED",
-      "reminders": []
-    },
-    {
-      "title": "Bug Triage",
-      "description": "Go through bug backlog and prioritize.",
-      "category": "Work",
-      "priority": "Low",
-      "dueDate": "2025-01-05",
-      "status": "DELAYED",
-      "reminders": [
-        { "reminderDate": "2024-12-31", "message": "Start bug triage early.", "auto": false }
-      ]
-    },
-    {
-      "title": "Team Offsite Planning",
-      "description": "Plan venue and agenda for team offsite meeting.",
-      "category": "Meetings",
-      "priority": "Low",
-      "dueDate": "2025-02-01",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-01-31", "message": "Confirm offsite venue.", "auto": true }
-      ]
-    },
-    {
-      "title": "Docker Setup",
-      "description": "Set up Docker containers for staging environment.",
-      "category": "Backend",
-      "priority": "Medium",
-      "dueDate": "2025-01-28",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-01-27", "message": "Configure Docker settings.", "auto": true },
-        { "reminderDate": "2025-01-28", "message": "Docker setup review.", "auto": false }
-      ]
-    },
-    {
-      "title": "Completed Task Example 1",
-      "description": "Dummy completed task for testing.",
-      "category": "General",
-      "priority": "High",
-      "dueDate": "2024-12-15",
-      "status": "COMPLETED",
-      "reminders": []
-    },
-    {
-      "title": "Delayed Task Example 1",
-      "description": "Dummy delayed task for demonstration.",
-      "category": "General",
-      "priority": "Medium",
-      "dueDate": "2024-12-10",
-      "status": "DELAYED",
-      "reminders": [
-        { "reminderDate": "2024-12-09", "message": "Task is about to be delayed!", "auto": false }
-      ]
-    },
-    {
-      "title": "Analytics Setup",
-      "description": "Configure analytics tracking on the new website.",
-      "category": "Research",
-      "priority": "Medium",
-      "dueDate": "2025-02-14",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-13", "message": "Check analytics configuration.", "auto": true }
-      ]
-    },
-    {
-      "title": "Beta Release",
-      "description": "Release the beta version to internal testers.",
-      "category": "Work",
-      "priority": "High",
-      "dueDate": "2025-02-20",
-      "status": "IN_PROGRESS",
-      "reminders": [
-        { "reminderDate": "2025-02-19", "message": "Send notifications to testers.", "auto": false }
-      ]
-    },
-    {
-      "title": "Mobile UI Testing",
-      "description": "Test the UI on different mobile devices.",
-      "category": "Testing",
-      "priority": "Medium",
-      "dueDate": "2025-02-22",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-21", "message": "Ensure mobile compatibility.", "auto": false }
-      ]
-    },
-    {
-      "title": "User Training Video",
-      "description": "Create a short video tutorial for new users.",
-      "category": "Documentation",
-      "priority": "Low",
-      "dueDate": "2025-02-18",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-17", "message": "Draft video script.", "auto": true }
-      ]
-    },
-    {
-      "title": "Code Cleanup",
-      "description": "Remove deprecated methods and reorganize packages.",
-      "category": "Work",
-      "priority": "Low",
-      "dueDate": "2025-02-05",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-04", "message": "Last check for cleanup tasks.", "auto": false }
-      ]
-    },
-    {
-      "title": "Marketing Plan",
-      "description": "Prepare a marketing plan for next quarter.",
-      "category": "Planning",
-      "priority": "Medium",
-      "dueDate": "2025-02-28",
-      "status": "OPEN",
-      "reminders": [
-        { "reminderDate": "2025-02-27", "message": "Finalize marketing strategy.", "auto": false }
+      "name": "Low",
+      "tasks": [
+        "Deployment Docs",
+        "Database Migration",
+        "Bug Triage",
+        "Team Offsite Planning",
+        "Code Review",
+        "User Training Video",
+        "Code Cleanup"
       ]
     }
   ],
@@ -353,45 +116,372 @@
       ]
     }
   ],
-  "priorities": [
+  "tasks": [
     {
-      "name": "High",
-      "tasks": [
-        "Develop UI",
-        "Update Project Plan",
-        "API Refactor",
-        "UI Polish",
-        "Security Audit",
-        "Client Presentation",
-        "Completed Task Example 1",
-        "Beta Release"
-      ]
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        },
+        {
+          "message": "default",
+          "reminderDate": "2025-02-26"
+        },
+        {
+          "message": "UI deadline is tomorrow.",
+          "reminderDate": "2024-12-19"
+        }
+      ],
+      "dueDate": "2024-12-20",
+      "description": "Create the user interface using JavaFX.",
+      "title": "Develop UI",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
     },
     {
-      "name": "Medium",
-      "tasks": [
-        "Bug Fixing",
-        "Write Documentation",
-        "Performance Tests",
-        "User Feedback Analysis",
-        "Logo Redesign",
-        "Delayed Task Example 1",
-        "Docker Setup",
-        "Marketing Plan",
-        "Analytics Setup"
-      ]
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        }
+      ],
+      "dueDate": "2024-12-22",
+      "description": "Fix critical bugs in the application.",
+      "title": "Bug Fixing",
+      "category": "Work",
+      "priority": "Medium",
+      "status": "DELAYED"
     },
     {
-      "name": "Low",
-      "tasks": [
-        "Deployment Docs",
-        "Database Migration",
-        "Bug Triage",
-        "Team Offsite Planning",
-        "Code Review",
-        "User Training Video",
-        "Code Cleanup"
-      ]
+      "reminders": [],
+      "dueDate": "2024-12-25",
+      "description": "Prepare documentation for deployment.",
+      "title": "Deployment Docs",
+      "category": "Documentation",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Finish writing documentation.",
+          "reminderDate": "2024-12-27"
+        }
+      ],
+      "dueDate": "2024-12-28",
+      "description": "Document new features and API changes.",
+      "title": "Write Documentation",
+      "category": "Documentation",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        },
+        {
+          "message": "default",
+          "reminderDate": "2025-02-26"
+        }
+      ],
+      "dueDate": "2024-12-30",
+      "description": "Revise the project plan and deadlines.",
+      "title": "Update Project Plan",
+      "category": "Planning",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        },
+        {
+          "message": "default",
+          "reminderDate": "2025-02-26"
+        },
+        {
+          "message": "default",
+          "reminderDate": "2025-01-28"
+        }
+      ],
+      "dueDate": "2025-01-10",
+      "description": "Refactor the backend APIs for better performance.",
+      "title": "API Refactor",
+      "category": "Backend",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        },
+        {
+          "message": "Start performance tests.",
+          "reminderDate": "2025-01-11"
+        }
+      ],
+      "dueDate": "2025-01-12",
+      "description": "Run performance tests on new code.",
+      "title": "Performance Tests",
+      "category": "Testing",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "default",
+          "reminderDate": "2025-02-20"
+        },
+        {
+          "message": "default",
+          "reminderDate": "2025-02-26"
+        }
+      ],
+      "dueDate": "2025-01-08",
+      "description": "Finalize UI design and fix layout issues.",
+      "title": "UI Polish",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [],
+      "dueDate": "2025-01-01",
+      "description": "Migrate database schema to the new version.",
+      "title": "Database Migration",
+      "category": "Backend",
+      "priority": "Low",
+      "status": "COMPLETED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Last day to gather feedback.",
+          "reminderDate": "2025-01-14"
+        }
+      ],
+      "dueDate": "2025-01-15",
+      "description": "Review user feedback and prepare a summary report.",
+      "title": "User Feedback Analysis",
+      "category": "Research",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Prepare security audit checklist.",
+          "reminderDate": "2025-02-09"
+        }
+      ],
+      "dueDate": "2025-02-10",
+      "description": "Perform a security audit on the entire application.",
+      "title": "Security Audit",
+      "category": "Security",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Show logo drafts to the marketing team.",
+          "reminderDate": "2025-01-20"
+        },
+        {
+          "message": "Finalize logo design.",
+          "reminderDate": "2025-01-24"
+        }
+      ],
+      "dueDate": "2025-01-25",
+      "description": "Design a new logo for marketing materials.",
+      "title": "Logo Redesign",
+      "category": "Design",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Rehearse final presentation.",
+          "reminderDate": "2025-01-17"
+        }
+      ],
+      "dueDate": "2025-01-18",
+      "description": "Prepare slides and demos for the client presentation.",
+      "title": "Client Presentation",
+      "category": "Meetings",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [],
+      "dueDate": "2025-01-02",
+      "description": "Review pull requests and provide feedback.",
+      "title": "Code Review",
+      "category": "Work",
+      "priority": "Medium",
+      "status": "COMPLETED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Start bug triage early.",
+          "reminderDate": "2024-12-31"
+        }
+      ],
+      "dueDate": "2025-01-05",
+      "description": "Go through bug backlog and prioritize.",
+      "title": "Bug Triage",
+      "category": "Work",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Confirm offsite venue.",
+          "reminderDate": "2025-01-31"
+        }
+      ],
+      "dueDate": "2025-02-01",
+      "description": "Plan venue and agenda for team offsite meeting.",
+      "title": "Team Offsite Planning",
+      "category": "Meetings",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Configure Docker settings.",
+          "reminderDate": "2025-01-27"
+        },
+        {
+          "message": "Docker setup review.",
+          "reminderDate": "2025-01-28"
+        }
+      ],
+      "dueDate": "2025-01-28",
+      "description": "Set up Docker containers for staging environment.",
+      "title": "Docker Setup",
+      "category": "Backend",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [],
+      "dueDate": "2024-12-15",
+      "description": "Dummy completed task for testing.",
+      "title": "Completed Task Example 1",
+      "category": "General",
+      "priority": "High",
+      "status": "COMPLETED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Task is about to be delayed!",
+          "reminderDate": "2024-12-09"
+        }
+      ],
+      "dueDate": "2024-12-10",
+      "description": "Dummy delayed task for demonstration.",
+      "title": "Delayed Task Example 1",
+      "category": "General",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Check analytics configuration.",
+          "reminderDate": "2025-02-13"
+        }
+      ],
+      "dueDate": "2025-02-14",
+      "description": "Configure analytics tracking on the new website.",
+      "title": "Analytics Setup",
+      "category": "Research",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Send notifications to testers.",
+          "reminderDate": "2025-02-19"
+        }
+      ],
+      "dueDate": "2025-02-20",
+      "description": "Release the beta version to internal testers.",
+      "title": "Beta Release",
+      "category": "Work",
+      "priority": "High",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Ensure mobile compatibility.",
+          "reminderDate": "2025-02-21"
+        }
+      ],
+      "dueDate": "2025-02-22",
+      "description": "Test the UI on different mobile devices.",
+      "title": "Mobile UI Testing",
+      "category": "Testing",
+      "priority": "Medium",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Draft video script.",
+          "reminderDate": "2025-02-17"
+        }
+      ],
+      "dueDate": "2025-02-18",
+      "description": "Create a short video tutorial for new users.",
+      "title": "User Training Video",
+      "category": "Documentation",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Last check for cleanup tasks.",
+          "reminderDate": "2025-02-04"
+        }
+      ],
+      "dueDate": "2025-02-05",
+      "description": "Remove deprecated methods and reorganize packages.",
+      "title": "Code Cleanup",
+      "category": "Work",
+      "priority": "Low",
+      "status": "DELAYED"
+    },
+    {
+      "reminders": [
+        {
+          "message": "Finalize marketing strategy.",
+          "reminderDate": "2025-02-27"
+        }
+      ],
+      "dueDate": "2025-02-28",
+      "description": "Prepare a marketing plan for next quarter.",
+      "title": "Marketing Plan",
+      "category": "Planning",
+      "priority": "Medium",
+      "status": "OPEN"
     }
   ]
 }

@@ -1,36 +1,71 @@
 package com.taskmanager;
+
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Η κλάση Category αναπαριστά μια κατηγορία εργασιών μέσα στο σύστημα διαχείρισης εργασιών.
+ * Κάθε κατηγορία έχει ένα όνομα και μια λίστα εργασιών που της ανήκουν.
+ */
 public class Category {
-    private List<Task> tasks;
     private String name;
+    private List<Task> tasks;
 
-    //Ο χρήστης θα μπορεί να ορίζει νέες κατηγορίες, δίνοντας το σχετικό όνομα.
-    public Category(String name){
+    /**
+     * Δημιουργεί μια νέα κατηγορία με το δοσμένο όνομα.
+     * @param name Το όνομα της κατηγορίας.
+     */
+    public Category(String name) {
+        this.name = name;
         this.tasks = new ArrayList<>();
-        setName(name);
     }
 
-    public String getName() { return name; }
-    public List<Task> getTasks() { return tasks; }
+    /**
+     * Επιστρέφει το όνομα της κατηγορίας.
+     * @return Το όνομα της κατηγορίας.
+     */
+    public String getName() {
+        return name;
+    }
 
-    //Επιπλέον, θα μπορεί να τροποποιήσει τον όνομα μιας κατηγορίας.
-    public void setName(String name) { this.name = name; }
-    
-    //each time a task is added to this category, it will be added to the list of tasks
+    /**
+     * Ορίζει ένα νέο όνομα για την κατηγορία.
+     * @param name Το νέο όνομα της κατηγορίας.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Επιστρέφει τη λίστα των εργασιών που ανήκουν σε αυτή την κατηγορία.
+     * @return Μια λίστα με τις εργασίες της κατηγορίας.
+     */
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    /**
+     * Προσθέτει μια εργασία στην κατηγορία.
+     * @param task Η εργασία που θα προστεθεί.
+     */
     public void addTask(Task task) {
-        tasks.add(task);
+        if (!tasks.contains(task)) {
+            tasks.add(task);
+        }
     }
 
+    /**
+     * Αφαιρεί μια εργασία από την κατηγορία.
+     * @param task Η εργασία που θα αφαιρεθεί.
+     */
     public void deleteTask(Task task) {
         tasks.remove(task);
     }
 
-    //Επίσης, θα μπορεί να διαγράφει μια κατηγορία μαζί με την αυτόματη διαγραφή όλων των εργασιών που ανήκουν σε αυτή.
-    //when you delete a category it deletes all the assowciated tasks
+    /**
+     * Διαγράφει την κατηγορία και όλες τις εργασίες που περιέχει.
+     */
     public void deleteCategory() {
-        for (Task task : new ArrayList<>(tasks)){
-            task.deleteTask();
-        }
+        tasks.clear();
     }
 }
